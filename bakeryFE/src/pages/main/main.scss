@@ -1,0 +1,60 @@
+@import "../../variables.scss";
+
+.main {
+  // background-image: url("../../assets/Food-Pyramid-Featured-Image.jpg.webp");
+  // background-size: cover;
+  // // background-color: #fff;
+  // background-color: grey;
+  // background-position: center center;
+  // background-repeat: no-repeat;
+  // min-height: 100vh;
+  // background-blend-mode: multiply;
+
+
+
+  .header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    .header_logo{
+      width: 100px;
+      height: 100px;
+      background-image: url('../../assets/humane&Healthy.png');
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
+  }
+  .main-inner{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+
+    text-align: right;
+    font-family: "Caveat", cursive;
+    color: $colorGB;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    .main-sup{
+      font-size: 40px;
+    }
+    .main-header{ 
+      font-size: 60px;
+    }
+     a{
+      color: $colorGB;
+      display: block;
+      padding: 10px 15px;
+      text-decoration: none;
+      cursor: pointer;
+      font-size: 25px;
+      transition: color 0.2s linear;
+    }
+    a:hover {
+      color: #c6d166;
+    }
+  }
+  }
+

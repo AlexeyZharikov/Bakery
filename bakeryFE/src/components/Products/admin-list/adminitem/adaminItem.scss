@@ -1,0 +1,30 @@
+.Admin-card{
+  font-family: 'Courier New', Courier, monospace;
+  color: #000;
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: 1px solid #fff;
+  background-color: #FFF;
+  margin: 10px 0;
+  padding: 5px;
+
+  .admin-photo-item{
+    
+    .admin-labels{
+      display: flex;
+      img{
+        width: 25px;
+        heIght: 25px;
+      }
+    }
+  }
+  .admin-buttons{
+    button{
+      padding: 5px 7px;
+      margin: 10px 10px 0 10px;
+      border: 1px solid black;
+      cursor: pointer;
+    }
+  }
+}

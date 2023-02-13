@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import './variables.scss';
+
+
+*{
+  margin: 0;
+  padding: 0;
+  border: 0px;
+}
+*,*::before,*::after{
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+a:focus, a:active{
+  outline: none;
+}
+aside, footer, header, section{
+  display: block;
+}
+html, body{
+  min-width: $minWidth;
+}
+body{
+  background-color: grey;
+}
+.App {
+  font-family: "Caveat", cursive;
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+  
+
+  background-image: url("./assets/Food-Pyramid-Featured-Image.jpg.webp");
+  background-size: cover;
+  // background-color: #fff;
+  background-attachment: fixed;
+  background-color: grey;
+  background-position: center center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  background-blend-mode: multiply;
+}
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+
+// .App-header {
+//   background-color: #282c34;
+  
+//   min-height: 100vh;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   font-size: calc(10px + 2vmin);
+//   color: white;
+// }
+
+// .App-link {
+//   color: #61dafb;
+// }
+
