@@ -1,0 +1,25 @@
+.quantity-input{
+    width: 100%;
+    max-width: 75px;
+    height: 20px;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    .quantity-input__decr,
+    .quantity-input__incr{
+      max-width: 25px;
+      width: 100%;
+      display: block;
+      font-size: 10px;
+    }
+    .quantity-input__windpw{
+      display: block;
+      max-width: 65px;
+      width: 100%;
+      margin: 0 auto;
+      text-align: center;
+    }
+    input::-webkit-inner-spin-button {
+      display: none!important;
+    }
+}

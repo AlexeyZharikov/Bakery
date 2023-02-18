@@ -8,7 +8,8 @@ export default class editProduct extends Component {
     this.state = {
       title: "",
       photo: "",
-      description: "",
+      shortDescription: "",
+      longDescription: "",
       price: "",
       availability: false,
       halal: false,
@@ -29,7 +30,8 @@ export default class editProduct extends Component {
         id: product._id,
         title: product.title,
         photo: product.photo,
-        description: product.description,
+        shortDescription: product.shortDescription,
+        longDescription: product.longDescription,
         price: product.price,
         availability: product.availability,
         halal: product.halal,
@@ -47,8 +49,11 @@ export default class editProduct extends Component {
   onChangePhoto(event) {
     this.setState({ photo: event.target.value });
   }
-  onChangeDescription(event) {
-    this.setState({ description: event.target.value });
+  onChangeShortDescription(event) {
+    this.setState({ shortDescription: event.target.value });
+  }
+  onChangeLongDescription(event) {
+    this.setState({ longDescription: event.target.value });
   }
   onChangePrice(event) {
     this.setState({ price: event.target.value });
@@ -81,7 +86,8 @@ export default class editProduct extends Component {
     const product = {
       title: this.state.title,
       photo: this.state.photo,
-      description: this.state.description,
+      shortDescription: this.state.shortDescription,
+      longDescription: this.state.longDescription,
       price: this.state.price,
       availability: this.state.availability,
       halal: this.state.halal,
@@ -94,10 +100,4 @@ export default class editProduct extends Component {
     }
     putProduct(product).then(res => console.log(res)).catch(err => console.log(err))
   }
-
-  // render(){
-  //   return(
-
-  //   )
-  // }
 }

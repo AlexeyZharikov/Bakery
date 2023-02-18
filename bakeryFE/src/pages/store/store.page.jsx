@@ -1,18 +1,13 @@
-import Header from "../../components/header/header.component";
-// import Item from "../../components/item/item.component";
-import Products from "../../components/Products/getProducts/getProducts.component";
+import GetProducts from "../../components/Products/getProducts/getProducts.component";
 
-const Store = () => {
-  return(
-    <>
-    <Header/>
+const Store = (props) => {
+  return (
     <div className="store">
       <div className="container">
-        <Products />
+        <GetProducts onAdd={props.onAdd} />
       </div>
     </div>
-    </>
-  )
-}
+  );
+};
 
 export default Store;

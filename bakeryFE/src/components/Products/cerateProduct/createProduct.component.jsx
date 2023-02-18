@@ -8,7 +8,8 @@ export default class CreateProduct extends Component {
 
     this.onChangeTitle = this.onChangeTitle.bind(this);
     this.onChangePhoto = this.onChangePhoto.bind(this);
-    this.onChangeDescription = this.onChangeDescription.bind(this);
+    this.onChangeShortDescription = this.onChangeShortDescription.bind(this);
+    this.onChangeLongDescription = this.onChangeLongDescription.bind(this);
     this.onChangePrice = this.onChangePrice.bind(this);
     this.onChangeAvailability = this.onChangeAvailability.bind(this);
     this.onChangeHalal = this.onChangeHalal.bind(this);
@@ -22,7 +23,8 @@ export default class CreateProduct extends Component {
     this.state = {
       title: "",
       photo: "",
-      description: "",
+      shortDescription: "",
+      longDescription: "",
       price: "",
       availability: false,
       halal: false,
@@ -41,8 +43,11 @@ export default class CreateProduct extends Component {
   onChangePhoto(p) {
     this.setState({ photo: p.target.value });
   }
-  onChangeDescription(p) {
-    this.setState({ description: p.target.value });
+  onChangeShortDescription(p) {
+    this.setState({ shortDescription: p.target.value });
+  }
+  onChangeLongDescription(p) {
+      this.setState({ longDescription: p.target.value });
   }
   onChangeAvailability(p) {
     this.setState({ availability: p.target.value });
@@ -75,7 +80,8 @@ export default class CreateProduct extends Component {
     const product = {
       title: this.state.title,
       photo: this.state.photo,
-      description: this.state.description,
+      shortDescription: this.state.shortDescription,
+      longDescription: this.state.longDescription,
       price: this.state.price,
       availability: this.state.availability,
       halal: this.state.halal,
@@ -86,7 +92,7 @@ export default class CreateProduct extends Component {
       glutenFree: this.state.glutenFree,
     };
 
-    console.log(product);
+    // console.log(product);
 
     postProduct(product)
       .then((res) => {
@@ -95,13 +101,15 @@ export default class CreateProduct extends Component {
       .catch((error) => {
         console.log(error);
       });
+
+      window.location  = '/admin-page'
   }
 
   render() {
     return (
       <>
         <form className="add-product">
-          <label htmlFor="title">Назва</label>
+          <label htmlFor="title">Название</label>
           <input
             name="title"
             type="text"
@@ -117,16 +125,26 @@ export default class CreateProduct extends Component {
             value={this.state.photo}
             onChange={this.onChangePhoto}
           />
-          <label htmlFor="description">Опис</label>
+          <label htmlFor="shortDescription">Краткое описаное</label>
           <textarea
             rows="8"
-            name="description"
+            name="shortDescription"
             type="text"
-            id="description"
-            value={this.state.description}
-            onChange={this.onChangeDescription}
+            id="shortDescription"
+            value={this.state.shortDescription}
+            onChange={this.onChangeShortDescription}
           />
-          <label htmlFor="price">Ціна</label>
+          <label htmlFor="longDescription">Длинное описание</label>
+          <textarea
+            rows="8"
+            name="longDescription"
+            type="text"
+            id="longDescription"
+            value={this.state.longDescription}
+            onChange={this.onChangeLongDescription}
+          />
+
+          <label htmlFor="price">Цена</label>
           <input
             type="text"
             name="price"
@@ -134,15 +152,15 @@ export default class CreateProduct extends Component {
             value={this.state.price}
             onChange={this.onChangePrice}
           />
-          <label htmlFor="availability">Наявність</label>
+          <label htmlFor="availability">Наличие</label>
           <select
             name="availability"
             id="availability"
             onChange={this.onChangeAvailability}
             value={this.state.availability}
           >
-            <option value="true">Так</option>
-            <option value="false">Ні</option>
+            <option value="true">Да</option>
+            <option value="false">Нет</option>
           </select>
 
           <label htmlFor="halal">Halal</label>
@@ -152,8 +170,8 @@ export default class CreateProduct extends Component {
             onChange={this.onChangeHalal}
             value={this.state.halal}
           >
-            <option value="true">Так</option>
-            <option value="false">Ні</option>
+            <option value="true">Да</option>
+            <option value="false">Нет</option>
           </select>
 
           <label htmlFor="kosher">Kosher</label>
@@ -163,8 +181,8 @@ export default class CreateProduct extends Component {
             onChange={this.onChangeKosher}
             value={this.state.kosher}
           >
-            <option value="true">Так</option>
-            <option value="false">Ні</option>
+            <option value="true">Да</option>
+            <option value="false">Нет</option>
           </select>
 
           <label htmlFor="vegan">Vegan</label>
@@ -174,8 +192,8 @@ export default class CreateProduct extends Component {
             onChange={this.onChangeVegan}
             value={this.state.vegan}
           >
-            <option value="true">Так</option>
-            <option value="false">Ні</option>
+            <option value="true">Да</option>
+            <option value="false">Нет</option>
           </select>
 
           <label htmlFor="raw">Raw</label>
@@ -185,31 +203,31 @@ export default class CreateProduct extends Component {
             onChange={this.onChangeRaw}
             value={this.state.raw}
           >
-            <option value="true">Так</option>
-            <option value="false">Ні</option>
+            <option value="true">Да</option>
+            <option value="false">Нет</option>
           </select>
-          <label htmlFor="sugarFree">Без цукру</label>
+          <label htmlFor="sugarFree">Без сахара</label>
           <select
             name="sugarFree"
             id="sugarFree"
             onChange={this.onChangeSugarFree}
             value={this.state.sugarFree}
           >
-            <option value="true">Так</option>
-            <option value="false">Ні</option>
+            <option value="true">Да</option>
+            <option value="false">Нет</option>
           </select>
-          <label htmlFor="glutenFree">Без-лютену</label>
+          <label htmlFor="glutenFree">Без глютена</label>
           <select
             name="glutenFree"
             id="glutenFree"
             onChange={this.onChangeGlutenFree}
             value={this.state.glutenFree}
           >
-            <option value="true">Так</option>
-            <option value="false">Ні</option>
+            <option value="true">Да</option>
+            <option value="false">Нет</option>
           </select>
           <button type="submit" onClick={this.onSubmit}>
-            Зберегти
+            Сохранить
           </button>
         </form>
       </>

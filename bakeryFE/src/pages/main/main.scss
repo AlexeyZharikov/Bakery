@@ -10,22 +10,20 @@
   // min-height: 100vh;
   // background-blend-mode: multiply;
 
-
-
-  .header-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
-    .header_logo{
-      width: 100px;
-      height: 100px;
-      background-image: url('../../assets/humane&Healthy.png');
-      background-size: 100%;
-      background-repeat: no-repeat;
-    }
-  }
-  .main-inner{
+  // .header-inner {
+  //   display: flex;
+  //   justify-content: space-between;
+  //   align-items: center;
+  //   padding: 10px 0;
+  //   .header_logo{
+  //     width: 100px;
+  //     height: 100px;
+  //     background-image: url('../../assets/humane&Healthy.png');
+  //     background-size: 100%;
+  //     background-repeat: no-repeat;
+  //   }
+  // }
+  .main-inner {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -36,25 +34,36 @@
     color: $colorGB;
     max-width: 800px;
     width: 100%;
-    margin: 0 auto;
-    .main-sup{
+    margin: 150px auto 0;
+    .main-sup {
       font-size: 40px;
     }
-    .main-header{ 
+    .main-header {
       font-size: 60px;
     }
-     a{
-      color: $colorGB;
-      display: block;
-      padding: 10px 15px;
-      text-decoration: none;
-      cursor: pointer;
-      font-size: 25px;
-      transition: color 0.2s linear;
+    .main-btn{
+      margin-top: 20px;
+      a {
+        border: 1px solid #5c821a;
+        background-color: #5c821a;
+        border-radius: 25px;
+        color: $colorGB;
+        display: inline-block;
+        padding: 10px 15px;
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 25px;
+        transition: color 0.2s linear;
+        -webkit-border-radius: 25px;
+        -moz-border-radius: 25px;
+        -ms-border-radius: 25px;
+        -o-border-radius: 25px;
+        box-shadow: 3px 3px 3px #5c821a;
+      }
+      a:hover {
+        color: #c6d166;
+      }
     }
-    a:hover {
-      color: #c6d166;
-    }
+   
   }
-  }
-
+}

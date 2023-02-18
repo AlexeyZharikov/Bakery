@@ -2,14 +2,15 @@ const productModel = require('../../../models').productModel;
 
 const putProduct = (req, res) => {
   const { id } = req.query;
-  const { title, description, availability, raw, sugarFree, glutenFree } = req.body;
+  const { title, shortDescription, longDescription, availability, raw, sugarFree, glutenFree } = req.body;
 
     return productModel
     .findById(id)
     .then((product) => {
       product.title = title,
       product.photo = photo,
-      product.description = description,
+      product.shortDescription = shortDescription,
+      product.longDescription = longDescription,
       product.price = price,
       product.availability = availability,
       product.halal = halal,

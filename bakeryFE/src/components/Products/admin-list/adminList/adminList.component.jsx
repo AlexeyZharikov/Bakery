@@ -8,7 +8,7 @@ export default class AdminList extends Component {
   constructor(props) {
     super(props);
 
-    this.deleteProd = this.deleteProd.bind(this);
+    this.delProd = this.delProd.bind(this);
     
     this.state = {
       products: []
@@ -18,13 +18,12 @@ export default class AdminList extends Component {
   componentDidMount() {
     getProducts().then(res => {
       this.setState({products: res.data})
-      console.log(res.data)
     }).catch((error) => {
       console.log(error)
     })
   }
 
-  deleteProd(id){
+  delProd(id){
     deleteProduct(id).then(res => console.log(res.data));
     this.setState({
       products: this.state.products.filter(item => item._id !== id)
@@ -33,7 +32,7 @@ export default class AdminList extends Component {
 
   getAllProducts() {
     return this.state.products.map(item => {
-      return <AdminItem id={item._id} deleteProd={this.deleteProd} key={item._id} title={item.title}  description={item.description} price={item.price} photo={item.photo} halal={item.halal} raw={item.raw}/>
+      return <AdminItem id={item._id} deleteProd={this.delProd} key={item._id} title={item.title}  longDescription={item.longDescription} shortDescription={item.shortDescription} price={item.price} photo={item.photo} kosher={item.kosher} vegan={item.vegan} sugarFree={item.sugarFree} glutenFree={item.glutenFree} halal={item.halal} raw={item.raw}/>
     })
   }
 

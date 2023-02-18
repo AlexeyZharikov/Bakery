@@ -1,13 +1,11 @@
 @import "../../variables.scss";
 
 .card {
-
-  position: relative;
   max-width: 20%;
   // max-width: 220px;
+  display: inline-block;
   width: 100%;
-  height: 400px;
-  margin: 20px auto;
+  margin: 20px 0;
   padding: 10px;
   background-color: $bckgcolor;
   border-radius: 20px;
@@ -16,46 +14,88 @@
   -ms-border-radius: 20px;
   -o-border-radius: 20px;
   box-shadow: 2px 2px 2px #fff;
-  .title{
-    color: #5c821a;
-    font-size: 20px;
-  }
-  .photo-item {
-    max-width: 200px;
-    width: 100%;
-    margin: 0 auto;
-    img {
-      cursor: pointer;
-      width: 100%;
+  .card-content {
+    height: 350px;
+    .title {
+      color: #5c821a;
+      font-size: 20px;
     }
-    .labels{
-      display: flex;
-      img{
-        width: 25px;
-        height: 25px ;
-        display: block;
+    .photo-item {
+      max-width: 200px;
+      width: 100%;
+      margin: 0 auto;
+      img {
+        cursor: pointer;
+        width: 100%;
+      }
+      .labels {
+        display: flex;
+        img {
+          max-width: 25px;
+          width: 100%;
+          height: auto;
+          display: block;
+        }
       }
     }
+    .price {
+      font-size: 25px;
+      text-align: left;
+    }
+    .quantity-input{
+      width: 100%;
+      max-width: 75px;
+      height: 20px;
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 0;
+      .quantity-input__decr,
+      .quantity-input__incr{
+        max-width: 25px;
+        width: 100%;
+        display: block;
+        font-size: 10px;
+      }
+      .quantity-input__windpw{
+        display: block;
+        max-width: 65px;
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+      }
+      input::-webkit-inner-spin-button {
+        display: none!important;
+      }
   }
-  .price{
-    font-size: 25px;
-    text-align: left;
+    .shortDescription {
+      text-align: left;
+      font-family: "Roboto", sans-serif;
+      font-size: 14px;
+    }
   }
-  .description{
-    text-align: left;
-    font-family: 'Roboto', sans-serif;
+  .card-btn {
+    font-family: "Roboto", sans-serif;
     font-size: 14px;
-  }
-  .card-btn{
-    position: absolute;
+    font-weight: 600;
     bottom: 20px;
-    left: 16%;
     max-width: 150px;
     width: 100%;
     margin: 0 auto;
-    
-    // background-color: $colorWB;
-    button{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    .details{
+      color: #5c821a;
+      background-color: #ccc;
+      margin-bottom: 10px;
+      text-decoration: none;
+    }
+    button.add-to-cart {
+      background-color: $colorWB;
+      color: #fff;
+    }
+    button.add-to-cart, 
+    .details {
       cursor: pointer;
       font-weight: 600;
       padding: 5px 10px;
@@ -65,16 +105,6 @@
       -ms-border-radius: 10px;
       -o-border-radius: 10px;
       width: 100%;
-    }
-    button.add-to-cart{
-      background-color: $colorWB;
-      color: #fff;
-
-    }
-    button.details{
-      color: #5c821a;
-      background-color: #ccc;
-      margin-bottom: 10px;
     }
   }
 }

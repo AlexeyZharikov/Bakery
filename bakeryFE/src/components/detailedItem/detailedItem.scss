@@ -1,0 +1,40 @@
+.detailed-item-content{
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #fff;
+  display: flex;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  justify-content: space-around;
+  .detailed-item-photo{
+    max-width: 320px;
+    width: 100%;
+    img{
+      width: 100%;
+    }
+  }
+  .detailed-item-text{
+    text-align:  left;
+    padding: 25px;
+    .title{
+      font-size: 25px;
+      font-weight: 700;
+    }
+    .longDescription{
+      font-family: "Roboto", sans-serif;
+      font-size: 15px;
+    }
+    .price{
+      font-size: 20px;
+      span{
+        font-weight: 700;
+      }
+    }
+  }
+
+}
+

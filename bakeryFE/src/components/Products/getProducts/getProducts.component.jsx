@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
-import './getProducts.scss'
-import {getProducts} from '../../../services/bakeryBE_API';
-import Item from '../../item/item.component';
+import { Component } from "react";
+import "./getProducts.scss";
+import { getProducts } from "../../../services/bakeryBE_API";
+import Item from "../../item/item.component";
 
-export default class Products extends Component {
+export default class GetProducts extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -12,28 +12,43 @@ export default class Products extends Component {
   }
 
   componentDidMount() {
-    getProducts().then(res => {
-      this.setState({products: res.data})
-      console.log(res.data)
-    }).catch((error) => {
-      console.log(error)
-    })
+    getProducts()
+      .then((res) => {
+        this.setState({ products: res.data });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   getAllProducts() {
-    return this.state.products.map(item => {
-      return <Item key={item._id} title={item.title}  description={item.description} price={item.price} photo={item.photo} halal={item.halal} raw={item.raw}/>
-    })
+    return this.state.products.map((item, i) => {
+      return (
+        <Item
+          count={this.state.count}
+          key={i+1}
+          id={item._id}
+          title={item.title}
+          onAdd={this.props.onAdd}
+          shortDescription={item.shortDescription}
+          price={item.price}
+          photo={item.photo}
+          halal={item.halal}
+          kosher={item.kosher}
+          vegan={item.vegan}
+          glutenFree={item.glutenFree}
+          raw={item.raw}
+          sugarFree={item.sugarFree}
+        />
+      );
+    });
   }
-
+  
   render() {
     return (
-      <div className='products'>
-          <div className="products-inner">
-            {this.getAllProducts()}
-          </div>
+      <div className="products">
+        <div className="products-inner">{this.getAllProducts()}</div>
       </div>
-    )
+    );
   }
-
 }

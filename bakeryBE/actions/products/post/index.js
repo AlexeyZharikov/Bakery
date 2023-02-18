@@ -4,7 +4,8 @@ const postProduct = (req, res) => {
   const {
     title,
     photo,
-    description,
+    shortDescription,
+    longDescription,
     price,
     availability,
     halal,
@@ -18,7 +19,8 @@ const postProduct = (req, res) => {
   const newProd = new productModel({
     title,
     photo,
-    description,
+    shortDescription,
+    longDescription,
     price,
     availability,
     halal,
