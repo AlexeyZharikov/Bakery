@@ -1,11 +1,9 @@
-import './admin-page.scss';
+import './admin.page.scss';
 import CreateProduct from "../../components/Products/cerateProduct/createProduct.component";
 import AdminList from '../../components/Products/admin-list/adminList/adminList.component';
 
-
-
-
 const Admin = () => {
+
   return (
     <div className="admin-page">
       <div className="container">

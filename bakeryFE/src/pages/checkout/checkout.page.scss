@@ -1,0 +1,48 @@
+@import "../../variables.scss";
+
+.checkout {
+  padding-top: 50px;
+  .checkout-card {
+    max-width: 600px;
+    background-color: #fff;
+    width: 100%;
+    margin: 0 auto;
+    .checkout-header{
+      font-size: 25px;
+      padding: 7px 0 10px 0;
+    }
+    .cart-item {
+      width: 100%;
+      .cart-item-context {
+        .cart-item-photo{
+          padding: 0px 15px;
+        }
+        .cart-item-text {
+          margin: 0;
+          padding: 10px;
+          .cart-item-title {
+            color: #000;
+          }
+          .quantity {
+            color: #000;
+          }
+        }
+        .price {
+          color: #000;
+        }
+
+        .del-icon {
+          display: none;
+        }
+      }
+    }
+    .total{
+      text-align: right;
+      padding: 20px;
+      span{
+        font-size: 22px;
+        font-weight: 700;
+      }
+    }
+  }
+}

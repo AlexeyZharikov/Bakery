@@ -16,11 +16,12 @@ export default class GetProduct extends Component {
     };
   }
   componentDidMount() {
-    const clearId = window.location.href.split('/')[5]
+    const clearId = window.location.href.split('/')[5];
     const id = clearId.slice(4)
     getProduct(id)
       .then((res) => {
         this.setState({
+          
           title: res.data.title,
           longDescription: res.data.longDescription,
           id: res.data._id,
@@ -36,13 +37,14 @@ export default class GetProduct extends Component {
 
   getOneProduct() {
     const product = {
+      key: this.state.id,
       id: this.state.id,
       title: this.state.title,
       photo: this.state.photo,
       longDescription: this.state.longDescription,
       price: this.state.price
     };
-    return <DetailedItem product={product} />;
+    return <DetailedItem  product={product} />;
   }
 
   render() {

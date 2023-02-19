@@ -1,4 +1,4 @@
-import "./item.scss";
+import "./item.component.scss";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -43,8 +43,6 @@ const Item = (props) => {
   }
   const initialCount = () => {
     setCount(1)
-    // setPrice(count * props.price)
-    
   }
 
   return (
@@ -117,7 +115,6 @@ const Item = (props) => {
           <h3>{props.title}</h3>
         </div>
         <div className="price">Ціна: {props.price} грн.</div>
-        {/* <Quantity /> */}
         <div className="quantity-input">
           <button
             className="quantity-input__decr"
@@ -139,7 +136,6 @@ const Item = (props) => {
           </button>
         </div>
         <div className="shortDescription">{props.shortDescription}</div>
-        {/* <div className="id">{props.id}</div> */}
       </div>
       <div className="card-btn">
         <Link className="details" to={`details/?id=${props.id}`}>Детальніше</Link>

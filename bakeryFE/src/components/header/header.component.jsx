@@ -1,11 +1,15 @@
 import "./header.scss";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { BsCartCheck, BsCartDash } from "react-icons/bs";
 import { useState } from "react";
 import CartItem from "../cartItem/cartItem.component";
 
+const Header = (props) => {
+  let [cartOpen, setCartOpen] = useState(false);
+  const location=useLocation()
+  const pathname=location.pathname
 
-const showCartItems = (props) => {
+  const showCartItems = (props) => {
   
 
     let total = 0;
@@ -31,11 +35,12 @@ const showCartItems = (props) => {
       ))}
       <div className="total-price">Всього: <span>{total}</span> грн.</div>
       <div className="checkout">
-        <NavLink to="/checkout">Оформити замовлення</NavLink>
+        <NavLink to="/checkout" >Оформити замовлення</NavLink>
       </div>
     </div>
   );
 };
+// onClick={() => setCartOpen(false)}
 
 const showNothing = () => {
   return (
@@ -45,11 +50,6 @@ const showNothing = () => {
   );
 };
 
-
-
-const Header = (props) => {
-  // const [total, setTotal] = useState(0)
-  let [cartOpen, setCartOpen] = useState(false);
   
 
 
@@ -58,14 +58,13 @@ const Header = (props) => {
   };
 
   return (
-    <div className="header">
+    <div className={(pathname === "/admin-page" || pathname === "/checkout") ? "header display-none" : "header display-block" }>
       <div className="container">
         <div className="header-inner">
           <div className="header_logo">
             <Link to="/"></Link>
           </div>
           <nav className="nav">
-            {/* activeClassname="active" */}
             <NavLink
               className={(navData) => (navData.isActive ? "active" : "")}
               to="/"

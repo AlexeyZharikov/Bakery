@@ -1,4 +1,5 @@
-import "./adaminItem.scss";
+import { Link } from "react-router-dom";
+import "./adaminItem.component.scss";
 
 const {
   vegan,
@@ -18,11 +19,10 @@ const AdminItem = (props) => {
   return (
     <div className="Admin-card" key={props._id}>
       <div className="admin-title">
-        <b>Название:</b> <b>{props.title}</b>
+        <b>Название: {props.title}</b>
       </div>
       <div>{props.id}</div>
       <div className="admin-photo-item">
-        {/* <img src={props.photo} alt="product" style={hover ? hoverStyle : normalStyle} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}/> */}
         <div className="admin-photo-link">
           <b>Ссылка на фото:</b>
           {props.photo}
@@ -89,7 +89,7 @@ const AdminItem = (props) => {
         <button className="Delete" onClick={deleteThisProduct}>
           Del
         </button>
-        <button className="edit">Edit</button>
+        <Link className="edit" to={`edit/?id=${props.id}`}>Edit</Link>
       </div>
     </div>
   );

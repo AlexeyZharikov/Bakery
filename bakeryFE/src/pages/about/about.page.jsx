@@ -1,5 +1,4 @@
 // import './about.scss'
-import Header from "../../components/header/header.component";
 
 const About = () => {
   return(

@@ -1,5 +1,5 @@
 import { Component } from "react";
-import "./getProducts.scss";
+import "./getProducts.component.scss";
 import { getProducts } from "../../../services/bakeryBE_API";
 import Item from "../../item/item.component";
 
@@ -22,11 +22,11 @@ export default class GetProducts extends Component {
   }
 
   getAllProducts() {
-    return this.state.products.map((item, i) => {
+    return this.state.products.map((item) => {
       return (
         <Item
           count={this.state.count}
-          key={i+1}
+          key={item._id}
           id={item._id}
           title={item.title}
           onAdd={this.props.onAdd}

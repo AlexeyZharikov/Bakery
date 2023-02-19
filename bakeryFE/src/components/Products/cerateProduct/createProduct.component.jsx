@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./createProduct.scss";
+import "./createProduct.component.scss";
 import { postProduct } from "../../../services/bakeryBE_API";
 
 export default class CreateProduct extends Component {

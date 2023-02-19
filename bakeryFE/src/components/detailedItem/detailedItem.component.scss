@@ -1,3 +1,5 @@
+@import '../../variables.scss';
+
 .detailed-item-content{
   max-width: 800px;
   width: 100%;
@@ -32,6 +34,23 @@
       font-size: 20px;
       span{
         font-weight: 700;
+      }
+    }
+    .buttons{
+      .back-btn{
+        background-color: #5c821a;
+        color: #fff;
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+        transition: color 0.2s linear;
+        text-decoration: none;
+        padding: 3px 7px;
+      }
+      .back-btn:hover{
+        color: $colorWB;
       }
     }
   }

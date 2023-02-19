@@ -1,5 +1,6 @@
 @import "../../variables.scss";
 .header {
+  display: block;
   font-family: "Caveat", cursive;
   padding: 10px 0;
   width: 100%;
@@ -155,4 +156,10 @@
       }
     }
   }
+}
+.header.display-block{
+  display: block;
+}
+.header.display-none{
+  display: none;
 }

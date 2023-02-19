@@ -1,17 +1,13 @@
-// import { useParams } from "react-router-dom";
-// import GetProducts from "../../components/Products/getProducts/getProducts.component";
-
 import GetProduct from "../../components/Products/getProduct/getProduct.component";
-
-
+import './details.page.scss';
 
 const Details = (props) => {
   // const [id] = useParams();
   return(
     <div className="details">
       <div className="container">
-        <GetProduct props={props}/>
-        {/* {props.orders.filter(item =>)} */}
+        <h2>Детальна інформація про продукт</h2>
+        <GetProduct/>
     </div>
   </div>
   )

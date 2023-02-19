@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './adminList.scss';
+import './adminList.component.scss';
 import AdminItem from '../adminitem/adminItem.component';
 import {getProducts, deleteProduct} from '../../../../services/bakeryBE_API';
 
