@@ -26,5 +26,14 @@
       border: 1px solid black;
       cursor: pointer;
     }
+    .edit{
+      padding: 5px 7px;
+      margin: 10px 10px 0 10px;
+      border: 1px solid #000;
+      cursor: pointer;
+      text-decoration: none;
+      background-color: #ccc;
+      color: #000
+    }
   }
 }

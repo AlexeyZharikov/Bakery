@@ -15,8 +15,6 @@ const {
 const Item = (props) => {
   const [hover, setHover] = useState(false);
   const [count, setCount] = useState(1);
-  // const [price, setPrice] = useState(count * props.price)
-  
 
   const hoverStyle = {
     transform: "scale(1.05)",
@@ -48,11 +46,14 @@ const Item = (props) => {
   return (
     <div className="card" key={props._id}>
       <div className="card-content">
-        <div className="photo-item">
+        <div className="photo-item" >
+        <div className="mask" style={props.availability === true ? {background: "transparent"} : {background: "rgba(000, 000, 000, 0.5)"}}>
+          <div className="availability" style={props.availability === true ? {display: "none"} : {display: "block"}}>Товар в дорозі</div>
+        </div>
           <img
             src={props.photo}
             alt="product"
-            style={hover ? hoverStyle : normalStyle}
+            style={hover && props.availability === true ? hoverStyle : normalStyle}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
           />
@@ -139,7 +140,7 @@ const Item = (props) => {
       </div>
       <div className="card-btn">
         <Link className="details" to={`details/?id=${props.id}`}>Детальніше</Link>
-        <button className="add-to-cart" onClick={() => {
+        <button disabled={props.availability === false} id="submit-btn" className="add-to-cart" onClick={() => {
           props.onAdd({id: props.id, title: props.title, photo: props.photo, price: props.price, count}); initialCount()}}>
           Додати до кошика
         </button>

@@ -162,7 +162,6 @@ export default class CreateProduct extends Component {
             <option value="true">Да</option>
             <option value="false">Нет</option>
           </select>
-
           <label htmlFor="halal">Halal</label>
           <select
             name="halal"

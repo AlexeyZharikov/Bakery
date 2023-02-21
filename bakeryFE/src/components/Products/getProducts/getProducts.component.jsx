@@ -31,6 +31,7 @@ export default class GetProducts extends Component {
           title={item.title}
           onAdd={this.props.onAdd}
           shortDescription={item.shortDescription}
+          availability={item.availability}
           price={item.price}
           photo={item.photo}
           halal={item.halal}

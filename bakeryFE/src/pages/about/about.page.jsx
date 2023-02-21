@@ -1,10 +1,11 @@
 // import './about.scss'
+import NoPage from "../noPpage/noPage.page";
 
 const About = () => {
   return(
       <div className="about-page">
         <div className="container">
-          <h2>About Page</h2>
+          <NoPage/>
         </div>
       </div>
   )

@@ -6,7 +6,7 @@ const EditPage = (props) => {
   return(
     <div className="edit">
       <div className="container">
-        <h2>Добавить продукт в магазин</h2>
+        <h2>Редактировать продукт</h2>
         <EditProduct/>
       </div>
     </div>

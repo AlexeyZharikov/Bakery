@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { putProduct, getProduct } from "../../../services/bakeryBE_API";
-import './putProduct.component.scss'
+import "./putProduct.component.scss";
 
 export default class EditProduct extends Component {
   constructor(props) {
@@ -37,9 +37,8 @@ export default class EditProduct extends Component {
     };
   }
   componentDidMount() {
-    const FullId = window.location.href.split('/')[5];
-    const id = FullId.slice(4)
-
+    const id = window.location.href.split("/")[5].slice(4);
+    // const id = FullId.slice(4);
 
     getProduct(id).then((res) => {
       const product = res.data;
@@ -60,7 +59,6 @@ export default class EditProduct extends Component {
         sugarFree: product.sugarFree,
         glutenFree: product.glutenFree,
       });
-      
     });
   }
   onChangeTitle(event) {
@@ -100,7 +98,7 @@ export default class EditProduct extends Component {
     this.setState({ glutenFree: event.target.value });
   }
 
-  onSubmit(e){
+  onSubmit(e) {
     e.preventDefault();
     const product = {
       _id: this.state.id,
@@ -116,144 +114,144 @@ export default class EditProduct extends Component {
       raw: this.state.raw,
       sugarFree: this.state.sugarFree,
       glutenFree: this.state.glutenFree,
-      
-    }
-    putProduct(product).then(res => console.log(res)).catch(err => console.log(err))
+    };
+    putProduct(product)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+
+    window.location = "/admin-page";
   }
 
-  render(){
+  render() {
     return (
       <div className="edit">
         <div className="edit-inner">
-        <form className="add-product">
-          <label htmlFor="title">Название</label>
-          <input
-            name="title"
-            type="text"
-            id="title"
-            onChange={this.onChangeTitle}
-            defaultValue={this.state.title}
-          />
-          <label htmlFor="photo-link">Фото</label>
-          <input
-            name="photo-link"
-            type="text"
-            id="photo-link"
-            onChange={this.onChangePhoto}
-            defaultValue={this.state.photo}
-          />
-          <label htmlFor="shortDescription">Краткое описаное</label>
-          <textarea
-            rows="8"
-            name="shortDescription"
-            type="text"
-            id="shortDescription"
-            onChange={this.onChangeShortDescription}
-            defaultValue={this.state.shortDescription}
-          />
-          <label htmlFor="longDescription">Длинное описание</label>
-          <textarea
-            rows="8"
-            name="longDescription"
-            type="text"
-            id="longDescription"
-            onChange={this.onChangeLongDescription}
-            defaultValue={this.state.longDescription}
-          />
+          <form className="edit-product">
+            <label htmlFor="title">Название</label>
+            <input
+              name="title"
+              type="text"
+              id="title"
+              onChange={this.onChangeTitle}
+              defaultValue={this.state.title}
+            />
+            <label htmlFor="photo-link">Фото</label>
+            <input
+              name="photo-link"
+              type="text"
+              id="photo-link"
+              onChange={this.onChangePhoto}
+              defaultValue={this.state.photo}
+            />
+            <label htmlFor="shortDescription">Краткое описаное</label>
+            <textarea
+              rows="8"
+              name="shortDescription"
+              type="text"
+              id="shortDescription"
+              onChange={this.onChangeShortDescription}
+              defaultValue={this.state.shortDescription}
+            />
+            <label htmlFor="longDescription">Длинное описание</label>
+            <textarea
+              rows="8"
+              name="longDescription"
+              type="text"
+              id="longDescription"
+              onChange={this.onChangeLongDescription}
+              defaultValue={this.state.longDescription}
+            />
 
-          <label htmlFor="price">Цена</label>
-          <input
-            type="text"
-            name="price"
-            id="price"
-            onChange={this.onChangePrice}
-            defaultValue={this.state.price}
-          />
-          <label htmlFor="availability">Наличие</label>
-          <select
-            name="availability"
-            id="availability"
-            onChange={this.onChangeAvailability}
-            defaultValue={this.state.availability}
-          >
-            <option value="true">Да</option>
-            <option value="false">Нет</option>
-          </select>
+            <label htmlFor="price">Цена</label>
+            <input
+              type="text"
+              name="price"
+              id="price"
+              onChange={this.onChangePrice}
+              defaultValue={this.state.price}
+            />
+            <label htmlFor="availability">Наличие</label>
+            <select
+              name="availability"
+              id="availability"
+              onChange={this.onChangeAvailability}
+              value={this.state.availability}
+            >
+              <option value="true">Да</option>
+              <option value="false">Нет</option>
+            </select>
 
-          <label htmlFor="halal">Halal</label>
-          <select
-            name="halal"
-            id="halal"
-            onChange={this.onChangeHalal}
-            defaultValue={this.state.halal}
-          >
-            <option value="true">Да</option>
-            <option value="false">Нет</option>
-          </select>
+            <label htmlFor="halal">Halal</label>
+            <select
+              name="halal"
+              id="halal"
+              onChange={this.onChangeHalal}
+              value={this.state.halal}
+            >
+              <option value="true">Да</option>
+              <option value="false">Нет</option>
+            </select>
 
-          <label htmlFor="kosher">Kosher</label>
-          <select
-            name="kosher"
-            id="kosher"
-            onChange={this.onChangeKosher}
-            defaultValue={this.state.kosher}
-          >
-            <option value="true">Да</option>
-            <option value="false">Нет</option>
-          </select>
+            <label htmlFor="kosher">Kosher</label>
+            <select
+              name="kosher"
+              id="kosher"
+              onChange={this.onChangeKosher}
+              value={this.state.kosher}
+            >
+              <option value="true">Да</option>
+              <option value="false">Нет</option>
+            </select>
 
-          <label htmlFor="vegan">Vegan</label>
-          <select
-            name="vegan"
-            id="vegan"
-            onChange={this.onChangeVegan}
-            defaultValue={this.state.vegan}
-            
-            
-          >
-            <option value="true">Да</option>
-            <option value="false">Нет</option>
-          </select>
+            <label htmlFor="vegan">Vegan</label>
+            <select
+              name="vegan"
+              id="vegan"
+              onChange={this.onChangeVegan}
+              value={this.state.vegan}
+            >
+              <option value="true">Да</option>
+              <option value="false">Нет</option>
+            </select>
 
-          <label htmlFor="raw">Raw</label>
-          <select
-            name="raw"
-            id="raw"
-            onChange={this.onChangeRaw}
-            defaultValue={this.state.raw}
-            
-          >
-            <option value="true">Да</option>
-            <option value="false">Нет</option>
-          </select>
-          <label htmlFor="sugarFree">Без сахара</label>
-          <select
-            name="sugarFree"
-            id="sugarFree"
-            onChange={this.onChangeSugarFree}
-            defaultValue={this.state.sugarFree}
-            
-            
-          >
-            <option value="true">Да</option>
-            <option value="false">Нет</option>
-          </select>
-          <label htmlFor="glutenFree">Без глютена</label>
-          <select
-            name="glutenFree"
-            id="glutenFree"
-            onChange={this.onChangeGlutenFree}
-            defaultValue={this.state.glutenFree}
-          >
-            <option value="true">Да</option>
-            <option value="false">Нет</option>
-          </select>
-          <button type="submit" onClick={this.onSubmit}>
-            Сохранить
-          </button>
-        </form>
+            <label htmlFor="raw">Raw</label>
+            <select
+              name="raw"
+              id="raw"
+              onChange={this.onChangeRaw}
+              value={this.state.raw}
+            >
+              <option value="true">Да</option>
+              <option value="false">Нет</option>
+            </select>
+            <label htmlFor="sugarFree">Без сахара</label>
+            <select
+              name="sugarFree"
+              id="sugarFree"
+              onChange={this.onChangeSugarFree}
+              value={this.state.sugarFree}
+            >
+              <option value="true">Да</option>
+              <option value="false">Нет</option>
+            </select>
+            <label htmlFor="glutenFree">Без глютена</label>
+            <select
+              name="glutenFree"
+              id="glutenFree"
+              onChange={this.onChangeGlutenFree}
+              value={this.state.glutenFree}
+            >
+              <option value="true">Да</option>
+              <option value="false">Нет</option>
+            </select>
+            <div className="edit-save-btn">
+              <button type="submit" onClick={this.onSubmit}>
+                Сохранить
+              </button>
+            </div>
+          </form>
         </div>
       </div>
-    )
+    );
   }
 }

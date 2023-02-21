@@ -16,8 +16,8 @@ export default class GetProduct extends Component {
     };
   }
   componentDidMount() {
-    const clearId = window.location.href.split('/')[5];
-    const id = clearId.slice(4)
+    const id = window.location.href.split('/')[5].slice(4);
+    // const id = clearId.slice(4)
     getProduct(id)
       .then((res) => {
         this.setState({

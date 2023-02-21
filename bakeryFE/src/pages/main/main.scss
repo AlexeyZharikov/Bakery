@@ -46,7 +46,7 @@
       a {
         border: 1px solid #5c821a;
         background-color: #5c821a;
-        border-radius: 25px;
+   
         color: $colorGB;
         display: inline-block;
         padding: 10px 15px;
@@ -54,12 +54,17 @@
         cursor: pointer;
         font-size: 25px;
         transition: color 0.2s linear;
+        border-radius: 25px;
         -webkit-border-radius: 25px;
         -moz-border-radius: 25px;
         -ms-border-radius: 25px;
         -o-border-radius: 25px;
         box-shadow: 3px 3px 3px #5c821a;
-      }
+        -webkit-transition: color 0.2s linear;
+        -moz-transition: color 0.2s linear;
+        -ms-transition: color 0.2s linear;
+        -o-transition: color 0.2s linear;
+    }
       a:hover {
         color: #c6d166;
       }

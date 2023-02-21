@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./adaminItem.component.scss";
+import "./adminItem.component.scss";
 
 const {
   vegan,
@@ -26,6 +26,10 @@ const AdminItem = (props) => {
         <div className="admin-photo-link">
           <b>Ссылка на фото:</b>
           {props.photo}
+        </div>
+        <div className="admin-availability">
+          <b>Наличие: </b>
+          {props.availability === true ? "в наличии" : "нету"}
         </div>
         <div className="admin-labels">
           <img
@@ -87,9 +91,9 @@ const AdminItem = (props) => {
       </div>
       <div className="admin-buttons">
         <button className="Delete" onClick={deleteThisProduct}>
-          Del
+          Удалить
         </button>
-        <Link className="edit" to={`edit/?id=${props.id}`}>Edit</Link>
+        <Link className="edit" to={`edit/?id=${props.id}`}>Редактировать</Link>
       </div>
     </div>
   );
