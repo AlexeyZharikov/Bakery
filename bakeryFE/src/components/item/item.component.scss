@@ -4,7 +4,7 @@
   max-width: 220px;
   display: block;
   width: 100%;
-  margin: 20px 0;
+  margin: 20px 35px;
   padding: 10px;
   background-color: $bckgcolor;
   border-radius: 20px;
@@ -24,7 +24,7 @@
       max-width: 200px;
       width: 100%;
       margin: 0 auto;
-      .mask{
+      .mask {
         position: absolute;
         top: 0;
         left: 0;
@@ -35,19 +35,20 @@
         -moz-border-radius: 20px;
         -ms-border-radius: 20px;
         -o-border-radius: 20px;
+
+        .availability {
+          position: absolute;
+          top: 75px;
+          left: 30px;
+          color: #fff;
+          font-size: 30px;
+          transform: rotate(45deg);
+          -webkit-transform: rotate(-45deg);
+          -moz-transform: rotate(45deg);
+          -ms-transform: rotate(45deg);
+          -o-transform: rotate(45deg);
+        }
       }
-      .availability{
-        position: absolute;
-        top: 75px;
-        left: 30px;
-        color: #fff;
-        font-size: 30px;
-        transform: rotate(45deg);
-        -webkit-transform: rotate(-45deg);
-        -moz-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        -o-transform: rotate(45deg);
-}
       img {
         cursor: pointer;
         width: 100%;
@@ -63,38 +64,64 @@
       }
     }
     .price {
-      font-size: 25px;
+      font-size: 15px;
       text-align: left;
     }
-    .quantity-input{
+    .quantity-input {
       width: 100%;
-      max-width: 75px;
-      height: 20px;
+      max-width: 60px;
+      height: 18px;
       display: flex;
       justify-content: space-between;
-      margin: 10px 0;
+      margin: 4px 0;
+      background-color: #ccc;
+      border-radius: 51px;
+      border-top: 0.5px solid #5c821a;
+      border-bottom: 0.5px solid #5c821a;
+  
+      
       .quantity-input__decr,
-      .quantity-input__incr{
-        max-width: 25px;
+      .quantity-input__incr {
+        max-width: 18px;
+        height: 17px;
         width: 100%;
         display: block;
-        font-size: 10px;
-      }
-      .quantity-input__windpw{
+        font-size: 8px;
+        font-family: "Roboto", sans-serif;
+        background-color: #c6d166;
+        color: #fff;
+        font-weight: 700;
+        border-radius: 49px;
+        -webkit-border-radius: 49px;
+        -moz-border-radius: 49px;
+        -ms-border-radius: 49px;
+        -o-border-radius: 49px;
+        border: 0.5px solid #5c821a;
+}
+      .quantity-input__windpw {
+        background-color: #ccc;
         display: block;
-        max-width: 65px;
+        max-width: 22px;
+        height: 17px;
         width: 100%;
         margin: 0 auto;
         text-align: center;
+        font-family: "Roboto", sans-serif;
+        font-size: 8px;
+        color: #5c821a;
       }
       input::-webkit-inner-spin-button {
-        display: none!important;
+        display: none !important;
       }
-  }
+      input:focus-visible{
+        outline: none;
+      }
+    }
     .shortDescription {
       text-align: left;
       font-family: "Roboto", sans-serif;
-      font-size: 14px;
+      font-size: 10px;
+      margin-top: 5px;
     }
   }
   .card-btn {
@@ -108,7 +135,7 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    button.add-to-cart, 
+    button.add-to-cart,
     .details {
       cursor: pointer;
       font-weight: 600;
@@ -120,7 +147,7 @@
       -o-border-radius: 10px;
       width: 100%;
     }
-    .details{
+    .details {
       color: #5c821a;
       background-color: #ccc;
       margin-bottom: 10px;
@@ -131,12 +158,11 @@
       color: #fff;
     }
     button:disabled,
-    button[disabled]{
+    button[disabled] {
       border: 1px solid #ccc;
       background-color: #ccc;
       color: #fff;
       cursor: not-allowed;
     }
-
   }
 }

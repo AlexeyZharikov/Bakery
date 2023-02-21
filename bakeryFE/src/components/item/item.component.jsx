@@ -11,7 +11,6 @@ const {
   sugarFree,
 } = require("../../assets/labels/index");
 
-
 const Item = (props) => {
   const [hover, setHover] = useState(false);
   const [count, setCount] = useState(1);
@@ -32,28 +31,45 @@ const Item = (props) => {
     setHover(false);
   };
   const increment = () => {
-    setCount(count + 1)
-  }
+    setCount(count + 1);
+  };
 
   const decrement = () => {
-    setCount(count <= 1 ? 1 : count - 1)
-
-  }
+    setCount(count <= 1 ? 1 : count - 1);
+  };
   const initialCount = () => {
-    setCount(1)
-  }
+    setCount(1);
+  };
 
   return (
     <div className="card" key={props._id}>
       <div className="card-content">
-        <div className="photo-item" >
-        <div className="mask" style={props.availability === true ? {background: "transparent"} : {background: "rgba(000, 000, 000, 0.5)"}}>
-          <div className="availability" style={props.availability === true ? {display: "none"} : {display: "block"}}>Товар в дорозі</div>
-        </div>
+        <div className="photo-item">
+          <div
+            className="mask"
+            style={
+              props.availability === true
+                ? { display: "none" }
+                : { display: "block", background: "rgba(000, 000, 000, 0.5)" }
+            }
+          >
+            <div
+              className="availability"
+              style={
+                props.availability === true
+                  ? { display: "none" }
+                  : { display: "block" }
+              }
+            >
+              Товар в дорозі
+            </div>
+          </div>
           <img
             src={props.photo}
             alt="product"
-            style={hover && props.availability === true ? hoverStyle : normalStyle}
+            style={
+              hover && props.availability === true ? hoverStyle : normalStyle
+            }
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
           />
@@ -117,10 +133,7 @@ const Item = (props) => {
         </div>
         <div className="price">Ціна: {props.price} грн.</div>
         <div className="quantity-input">
-          <button
-            className="quantity-input__decr"
-            onClick={decrement}
-          >
+          <button className="quantity-input__decr" onClick={decrement}>
             &mdash;
           </button>
           <input
@@ -129,19 +142,31 @@ const Item = (props) => {
             value={count}
             readOnly
           />
-          <button
-            className="quantity-input__incr"
-            onClick={increment}
-          >
+          <button className="quantity-input__incr" onClick={increment}>
             &#xff0b;
           </button>
         </div>
         <div className="shortDescription">{props.shortDescription}</div>
       </div>
       <div className="card-btn">
-        <Link className="details" to={`details/?id=${props.id}`}>Детальніше</Link>
-        <button disabled={props.availability === false} id="submit-btn" className="add-to-cart" onClick={() => {
-          props.onAdd({id: props.id, title: props.title, photo: props.photo, price: props.price, count}); initialCount()}}>
+        <Link className="details" to={`details/?id=${props.id}`}>
+          Детальніше
+        </Link>
+        <button
+          disabled={props.availability === false}
+          id="submit-btn"
+          className="add-to-cart"
+          onClick={() => {
+            props.onAdd({
+              id: props.id,
+              title: props.title,
+              photo: props.photo,
+              price: props.price,
+              count,
+            });
+            initialCount();
+          }}
+        >
           Додати до кошика
         </button>
       </div>

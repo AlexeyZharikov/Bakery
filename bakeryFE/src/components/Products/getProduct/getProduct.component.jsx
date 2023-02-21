@@ -12,7 +12,13 @@ export default class GetProduct extends Component {
       longDescription: "",
       id: "",
       photo: "",
-      price: ""
+      price: "",
+      halal: "",
+      kosher: "",
+      vegan: "",
+      raw: "",
+      sugarFree: "",
+      glutenFree: ""
     };
   }
   componentDidMount() {
@@ -21,12 +27,18 @@ export default class GetProduct extends Component {
     getProduct(id)
       .then((res) => {
         this.setState({
-          
           title: res.data.title,
           longDescription: res.data.longDescription,
+          availability: res.data.availability,
           id: res.data._id,
           photo: res.data.photo,
-          price: res.data.price
+          price: res.data.price,
+          halal: res.data.halal,
+          kosher: res.data.kosher,
+          vegan: res.data.vegan,
+          raw: res.data.raw,
+          sugarFree: res.data.sugarFree,
+          glutenFree: res.data.glutenFree
         });
         console.log(this.state);
       })
@@ -42,7 +54,14 @@ export default class GetProduct extends Component {
       title: this.state.title,
       photo: this.state.photo,
       longDescription: this.state.longDescription,
-      price: this.state.price
+      price: this.state.price,
+      halal: this.state.halal,
+      kosher: this.state.kosher,
+      vegan: this.state.vegan,
+      raw: this.state.raw,
+      sugarFree: this.state.sugarFree,
+      glutenFree: this.state.glutenFree
+
     };
     return <DetailedItem  product={product} />;
   }

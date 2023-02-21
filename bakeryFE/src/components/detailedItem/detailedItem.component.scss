@@ -13,18 +13,54 @@
   -o-border-radius: 20px;
   justify-content: space-around;
   .detailed-item-photo{
+    position: relative;
     max-width: 320px;
     width: 100%;
+    .mask {
+      position: absolute;
+      top: 10px;
+      bottom: 10px;
+      left: 0;
+      width: 100%;
+      border-radius: 20px;
+      -webkit-border-radius: 20px;
+      -moz-border-radius: 20px;
+      -ms-border-radius: 20px;
+      -o-border-radius: 20px;
+
+      .availability {
+        position: absolute;
+        top: 130px;
+        left: 65px;
+        color: #fff;
+        font-size: 40px;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+      }
+    }
     img{
       width: 100%;
     }
   }
   .detailed-item-text{
+    position: relative;
     text-align:  left;
     padding: 25px;
     .title{
       font-size: 25px;
       font-weight: 700;
+    }
+    .labels {
+      display: flex;
+      img {
+        max-width: 25px;
+        width: 100%;
+        height: auto;
+        display: block;
+      }
     }
     .longDescription{
       font-family: "Roboto", sans-serif;
@@ -37,6 +73,9 @@
       }
     }
     .buttons{
+      position: absolute;
+      bottom: 15px;
+      right: 0;
       .back-btn{
         background-color: #5c821a;
         color: #fff;
@@ -47,7 +86,9 @@
         -o-border-radius: 10px;
         transition: color 0.2s linear;
         text-decoration: none;
-        padding: 3px 7px;
+        padding: 5px 10px;
+        max-width: 120px;
+        width: 100%;
       }
       .back-btn:hover{
         color: $colorWB;
