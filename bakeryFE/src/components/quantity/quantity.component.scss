@@ -1,0 +1,52 @@
+@import '../../variables.scss';
+
+.quantity-input {
+  width: 100%;
+  max-width: 60px;
+  height: 18px;
+  display: flex;
+  justify-content: space-between;
+  margin: 4px 0;
+  background-color: $lightGrey;
+  border-radius: 51px;
+  border-top: 0.5px solid $darkGreen;
+  border-bottom: 0.5px solid $darkGreen;
+
+  .quantity-input__decr,
+  .quantity-input__incr {
+    max-width: 18px;
+    height: 17px;
+    width: 100%;
+    display: block;
+    font-size: 8px;
+    font-family: $secondaryTextFF;
+    background-color: $lightGreen;
+    color: $white;
+    font-weight: 700;
+    border-radius: 49px;
+    -webkit-border-radius: 49px;
+    -moz-border-radius: 49px;
+    -ms-border-radius: 49px;
+    -o-border-radius: 49px;
+    border: 0.5px solid $darkGreen;
+  }
+  .quantity-input__windpw {
+    background-color: $lightGrey;
+    display: block;
+    max-width: 22px;
+    height: 17px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    font-family: $secondaryTextFF;
+    font-size: 8px;
+    // color: $darkGreen;
+    color: $black;
+  }
+  input::-webkit-inner-spin-button {
+    display: none !important;
+  }
+  input:focus-visible {
+    outline: none;
+  }
+}

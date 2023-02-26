@@ -1,0 +1,39 @@
+@import '../../variables.scss';
+
+.categories{
+  text-align: left;
+  margin: 25px auto 5px;
+  max-width: 800px;
+  width: 100%;
+  border-bottom: 1px solid $white;
+  padding-bottom: 7px;
+  label{
+    color: $white;
+  }
+  select{
+    background: $lightGrey;
+    margin-left: 10px;
+    color: $black;
+    font-family: $mainTextFF;
+    font-size: 14px;
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
+    padding: 0 5px;
+    option{
+      font-family: $mainTextFF;
+      color: $white;
+    }
+  }
+  select:focus{
+    border: 0px!important;
+    outline: none!important;
+  }
+  select:focus-visible{
+    border: 0px!important;
+    outline: none!important;
+  }
+
+}

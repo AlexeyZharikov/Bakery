@@ -8,7 +8,7 @@ const Admin = () => {
     <div className="admin-page">
       <div className="container">
         <h2>Добавить продукт в магазин</h2>
-          <CreateProduct/>
+        <CreateProduct/>
         <h2>Список (редактировать или удалить продукты)</h2>
         <AdminList/>
       </div>

@@ -6,17 +6,17 @@
   width: 100%;
   margin: 20px 35px;
   padding: 10px;
-  background-color: $bckgcolor;
+  background-color: $white;
   border-radius: 20px;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   -ms-border-radius: 20px;
   -o-border-radius: 20px;
-  box-shadow: 2px 2px 2px #fff;
+  box-shadow: 2px 2px 2px $white;
   .card-content {
     height: 350px;
     .title {
-      color: #5c821a;
+      color: $darkGreen;
       font-size: 20px;
     }
     .photo-item {
@@ -40,7 +40,7 @@
           position: absolute;
           top: 75px;
           left: 30px;
-          color: #fff;
+          color: $white;
           font-size: 30px;
           transform: rotate(45deg);
           -webkit-transform: rotate(-45deg);
@@ -67,65 +67,16 @@
       font-size: 15px;
       text-align: left;
     }
-    .quantity-input {
-      width: 100%;
-      max-width: 60px;
-      height: 18px;
-      display: flex;
-      justify-content: space-between;
-      margin: 4px 0;
-      background-color: #ccc;
-      border-radius: 51px;
-      border-top: 0.5px solid #5c821a;
-      border-bottom: 0.5px solid #5c821a;
-  
-      
-      .quantity-input__decr,
-      .quantity-input__incr {
-        max-width: 18px;
-        height: 17px;
-        width: 100%;
-        display: block;
-        font-size: 8px;
-        font-family: "Roboto", sans-serif;
-        background-color: #c6d166;
-        color: #fff;
-        font-weight: 700;
-        border-radius: 49px;
-        -webkit-border-radius: 49px;
-        -moz-border-radius: 49px;
-        -ms-border-radius: 49px;
-        -o-border-radius: 49px;
-        border: 0.5px solid #5c821a;
-}
-      .quantity-input__windpw {
-        background-color: #ccc;
-        display: block;
-        max-width: 22px;
-        height: 17px;
-        width: 100%;
-        margin: 0 auto;
-        text-align: center;
-        font-family: "Roboto", sans-serif;
-        font-size: 8px;
-        color: #5c821a;
-      }
-      input::-webkit-inner-spin-button {
-        display: none !important;
-      }
-      input:focus-visible{
-        outline: none;
-      }
-    }
+   
     .shortDescription {
       text-align: left;
-      font-family: "Roboto", sans-serif;
+      font-family: $secondaryTextFF;
       font-size: 10px;
       margin-top: 5px;
     }
   }
   .card-btn {
-    font-family: "Roboto", sans-serif;
+    font-family: $secondaryTextFF;
     font-size: 14px;
     font-weight: 600;
     bottom: 20px;
@@ -148,20 +99,20 @@
       width: 100%;
     }
     .details {
-      color: #5c821a;
-      background-color: #ccc;
+      color: $darkGreen;
+      background-color: $lightGrey;
       margin-bottom: 10px;
       text-decoration: none;
     }
     button.add-to-cart {
-      background-color: $colorWB;
-      color: #fff;
+      background-color: $lightGreen;
+      color: $white;
     }
     button:disabled,
     button[disabled] {
-      border: 1px solid #ccc;
-      background-color: #ccc;
-      color: #fff;
+      border: 1px solid $lightGrey;
+      background-color: $lightGrey;
+      color: $white;
       cursor: not-allowed;
     }
   }

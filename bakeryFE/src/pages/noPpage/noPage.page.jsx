@@ -1,8 +1,10 @@
+import './noPage.page.scss';
+
 const NoPage = () => {
   return (
-    <div className="no-page">
+    <div className="page404">
       <div className="container">
-        <div style={{fontSize : "50px", color: "#fff"}}>404 - а нема такої сторінки</div>
+        <div className="page404-content">404 - а нема такої сторінки</div>
       </div>
     </div>
   )

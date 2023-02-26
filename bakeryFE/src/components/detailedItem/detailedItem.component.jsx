@@ -19,7 +19,7 @@ const DetailedItem = (props) => {
         <div
             className="mask"
             style={
-              props.availability === true
+              props.product.availability === true
                 ? { display: "none" }
                 : { display: "block", background: "rgba(000, 000, 000, 0.5)" }
             }
@@ -27,7 +27,7 @@ const DetailedItem = (props) => {
             <div
               className="availability"
               style={
-                props.availability === true
+                props.product.availability === true
                   ? { display: "none" }
                   : { display: "block" }
               }

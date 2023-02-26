@@ -1,0 +1,59 @@
+@import '../../variables.scss';
+
+.cart-block{
+  position: relative;
+}
+.cart-popup {
+  text-align: center;
+  position: absolute;
+  right: 10px;
+  width: 100%;
+  max-width: 450px;
+  background-color: rgba(204,204, 204, 0.9);
+  color: $black;
+  border: 1px solid $white;
+  height: auto;
+  z-index: 100;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  .empty p {
+    font-size: 20px;
+    margin: 10px auto;
+  }
+  .total-price {
+    text-align: right;
+    margin-right: 10px;
+    span{
+        font-weight: 700;
+    }
+  }
+  .checkout-btn {
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
+    max-width: 200px;
+    width: 100%;
+    margin: 15px auto;
+    font-size: 14px;
+    font-weight: 600;
+    background-color: $darkGreen;
+    
+    a{
+      color: $white;
+      text-decoration: none;
+      font-family: $mainTextFF;
+      font-size: 20px;
+    }
+  }
+  .checkout-btn a:hover{
+    color: $lightGreen;
+  }
+}
+

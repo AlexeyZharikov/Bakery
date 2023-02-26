@@ -1,23 +1,25 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const router = require('./routes');
-const cors = require('cors')
+const cors = require('cors');
+
 
 require('dotenv').config();
 
 let app = express();
-let port = process.env.PORT || 4000;
-
+let PORT = process.env.PORT || 4000;
+app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 app.use(express.json());
 app.use('/', router);
 
-const url = process.env.DB_URL;
+
+const URL = process.env.DB_URL;
 
 mongoose.set('strictQuery', false);
 
 mongoose
-  .connect(url, {
+  .connect(URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -27,7 +29,7 @@ mongoose
   .catch((err) => console.log(err));
 
 
-app.listen(port, () => {
-    console.log(`Port is: ${port}`);
+app.listen(PORT, () => {
+    console.log(`Port is: ${PORT}`);
 })
 

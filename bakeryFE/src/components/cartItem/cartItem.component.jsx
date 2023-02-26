@@ -1,10 +1,10 @@
-import "./cartItem.scss";
+import "./cartItem.component.scss";
 import {FaTrash} from 'react-icons/fa';
 
 const CartItem = (props) => {
 
- 
-  
+  let totalPrice = props.price * props.count
+
   return (
     <div className="cart-item" key={props.id}>
       <div className="cart-item-context">
@@ -19,7 +19,8 @@ const CartItem = (props) => {
             </div>
           </div>
         </div>
-        <div className="price" >{props.price * props.count} грн.</div>
+        {/* <div className="price" >{props.price * props.count} грн.</div> */}
+        <div className="price" >{totalPrice} грн.</div>
         <FaTrash className="del-icon" onClick={() => {props.onDelete(props.id); }}/>
       </div>
     </div>

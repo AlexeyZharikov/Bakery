@@ -32,7 +32,7 @@ export default class AdminList extends Component {
 
   getAllProducts() {
     return this.state.products.map(item => {
-      return <AdminItem id={item._id} deleteProd={this.delProd} key={item._id} title={item.title} availability={item.availability} longDescription={item.longDescription} shortDescription={item.shortDescription} price={item.price} photo={item.photo} kosher={item.kosher} vegan={item.vegan} sugarFree={item.sugarFree} glutenFree={item.glutenFree} halal={item.halal} raw={item.raw}/>
+      return <AdminItem id={item._id} deleteProd={this.delProd} key={item._id} title={item.title} category={item.category} availability={item.availability} longDescription={item.longDescription} shortDescription={item.shortDescription} price={item.price} photo={item.photo} kosher={item.kosher} vegan={item.vegan} sugarFree={item.sugarFree} glutenFree={item.glutenFree} halal={item.halal} raw={item.raw}/>
     })
   }
 

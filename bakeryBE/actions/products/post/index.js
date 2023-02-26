@@ -7,6 +7,7 @@ const postProduct = (req, res) => {
     shortDescription,
     longDescription,
     price,
+    category,
     availability,
     halal,
     kosher,
@@ -14,6 +15,7 @@ const postProduct = (req, res) => {
     raw,
     sugarFree,
     glutenFree
+    
   } = req.body;
 
   const newProd = new productModel({
@@ -22,6 +24,7 @@ const postProduct = (req, res) => {
     shortDescription,
     longDescription,
     price,
+    category,
     availability,
     halal,
     kosher,
@@ -29,6 +32,7 @@ const postProduct = (req, res) => {
     raw,
     sugarFree,
     glutenFree
+    
   })
 
   return newProd

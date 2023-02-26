@@ -29,7 +29,7 @@
         font-weight: 600;
         color: #000;
         display: flex;
-        font-family: "Roboto", sans-serif;
+        font-family: $secondaryTextFF;
         font-weight: 400;
         .quantity-title{
           padding: 10px 20px 10px 0;
@@ -90,7 +90,7 @@
       -o-transition: color 0.2s linear;
 }
     .del-icon:hover{
-      color: $colorWB;
+      color: $lightGreen;
     }
   }
 }

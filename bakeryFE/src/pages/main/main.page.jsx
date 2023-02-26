@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./main.scss";
+import "./main.page.scss";
 
 const Main = () => {
   return (

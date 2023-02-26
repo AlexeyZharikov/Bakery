@@ -18,6 +18,7 @@ export default class CreateProduct extends Component {
     this.onChangeRaw = this.onChangeRaw.bind(this);
     this.onChangeSugarFree = this.onChangeSugarFree.bind(this);
     this.onChangeGlutenFree = this.onChangeGlutenFree.bind(this);
+    this.onChangeCategory = this.onChangeCategory.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
@@ -33,6 +34,7 @@ export default class CreateProduct extends Component {
       raw: false,
       sugarFree: false,
       glutenFree: false,
+      category: '',
       products: [],
     };
   }
@@ -73,6 +75,10 @@ export default class CreateProduct extends Component {
   onChangeGlutenFree(p) {
     this.setState({ glutenFree: p.target.value });
   }
+  onChangeCategory(p) {
+    this.setState({ category: p.target.value });
+  }
+
 
   onSubmit(e) {
     e.preventDefault();
@@ -83,13 +89,15 @@ export default class CreateProduct extends Component {
       shortDescription: this.state.shortDescription,
       longDescription: this.state.longDescription,
       price: this.state.price,
+      category: this.state.category,
       availability: this.state.availability,
       halal: this.state.halal,
       kosher: this.state.kosher,
       vegan: this.state.vegan,
       raw: this.state.raw,
       sugarFree: this.state.sugarFree,
-      glutenFree: this.state.glutenFree,
+      glutenFree: this.state.glutenFree
+      
     };
 
     // console.log(product);
@@ -152,6 +160,22 @@ export default class CreateProduct extends Component {
             value={this.state.price}
             onChange={this.onChangePrice}
           />
+
+          <label htmlFor="category">Категория</label>
+          <select
+            name="category"
+            id="category"
+            onChange={this.onChangeCategory}
+            value={this.state.category}
+          >
+            <option value="undefined">-</option>
+            <option value="Батончики">Батончики</option>
+            <option value="Печиво">Печиво</option>
+            <option value="Випічка">Випічка</option>
+            <option value="Спеції">Спеції</option>
+            <option value="Маси і начинки">Маси і начинки</option>
+          </select>
+
           <label htmlFor="availability">Наличие</label>
           <select
             name="availability"

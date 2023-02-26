@@ -1,60 +1,41 @@
-import "./header.scss";
+import "./header.component.scss";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { BsCartCheck, BsCartDash, BsInstagram} from "react-icons/bs";
-import { useState } from "react";
-import CartItem from "../cartItem/cartItem.component";
-
-
+import { BsInstagram } from "react-icons/bs";
+import Cart from "../cart/cart.component";
 
 const Header = (props) => {
-  let [cartOpen, setCartOpen] = useState(false);
-  const location=useLocation()
-  const pathname=location.pathname
+  const location = useLocation();
+  const pathname = location.pathname;
+  // const [items, setItems] = useState([]);
 
-  const showCartItems = (props) => {
-    let total = 0;
-    props.orders.forEach((item) => total += item.price * item.count);
-  
+  // useEffect(() => {
+  //   const retriveProducts = JSON.parse(localStorage.getItem("items"));
+  //   if (retriveProducts) setItems(retriveProducts);
+  // }, []);
+
+  // useEffect(() => {
+  //   if (items?.length) {
+  //     localStorage.setItem("items", JSON.stringify(props.orders));
+  //   }
+  // }, [props.orders, items?.length]);
+
+  // useEffect(() => {
+  //   localStorage.getItem("id", JSON.parse(localStorage.getItem("id")));
+  // }, [props.orderId]);
+
+  // useEffect(() => {
+  //   localStorage.setItem("id", JSON.stringify(props.orderId));
+  // }, [props.orderId]);
   return (
-    <div className="full-Cart">
-      <div className="orderId">Замовлення №{props.orderId}</div>
-      {props.orders.map((item) => (
-        
-          <CartItem
-            key={item.id}
-            onDelete={props.onDelete}
-            id={item.id}
-            title={item.title}
-            photo={item.photo}
-            price={item.price}
-            count={item.count}
-            orders={props.orders}
-          />
-        
-      ))}
-      <div className="total-price">Всього: <span>{total}</span> грн.</div>
-      <div className="checkout-btn">
-        <NavLink to={`checkout/?id=${props.orderId}`} >Оформити замовлення</NavLink>
-      </div>
-    </div>
-  );
-  };
-  
-  const showNothing = () => {
-  return (
-    <div className="empty">
-      <p>Немає товарів</p>
-    </div>
-  );
-  };
-
-
-  const openCart = () => {
-    setCartOpen((cartOpen = !cartOpen));
-  };
-
-  return (
-    <div className={(pathname === "/admin-page" || pathname === `/checkout/` || pathname === "/admin-page/edit/") ? "header display-none" : "header display-block" }>
+    <div
+      className={
+        pathname === "/admin-page" ||
+        pathname === `/checkout/` ||
+        pathname === "/admin-page/edit/"
+          ? "header display-none"
+          : "header display-block"
+      }
+    >
       <div className="container">
         <div className="header-inner">
           <div className="header_logo">
@@ -62,31 +43,49 @@ const Header = (props) => {
           </div>
           <nav className="nav">
             <NavLink
-              className={(navData) => (navData.isActive ? "active" : "")}
+              className={(navData) =>
+                navData.isActive ? "nav-link active" : "nav-link"
+              }
               to="/"
             >
               Головна
             </NavLink>
-            <NavLink className={(navData) => (navData.isActive ? "active" : "")} to="/store">
+            <NavLink
+              className={(navData) =>
+                navData.isActive ? "nav-link active" : "nav-link"
+              }
+              to="/store"
+            >
               Магазин
             </NavLink>
-            <NavLink className={(navData) => (navData.isActive ? "active" : "")} to="/about">
+            <NavLink
+              className={(navData) =>
+                navData.isActive ? "nav-link active" : "nav-link"
+              }
+              to="/about"
+            >
               Про Нас
             </NavLink>
-            <NavLink  to="https://www.instagram.com/humane_and_healthy/">
-              <BsInstagram className="insta-link"/>
+            <NavLink
+              className="nav-link"
+              to="https://www.instagram.com/humane_and_healthy/"
+            >
+              <BsInstagram className="insta-link" />
             </NavLink>
-            <Link className="cart-link">
-              {props.orders.length > 0 ? (<BsCartCheck onClick={openCart} className={`cart ${cartOpen && "active-cart"}`}/>
-              ) : (<BsCartDash onClick={openCart} className={`cart ${cartOpen && "active-cart"}`}/>
-            )}
-            </Link>
-            {cartOpen && (
-              <div className="cart-popup">
-                {props.orders.length > 0 ? showCartItems(props) : showNothing()}
-              </div>
-            )}
+            <div className="cart-link">
+            {props.orders.length > 0 ? (<div className="cart-items-count">{props.orders.length}</div>) : ""}
+              <Cart
+                orders={props.orders}
+                setOrders={props.setOrders}
+                orderId={props.orderId}
+                onDelete={props.onDelete}
+              />
+              
+             
+
+            </div>
           </nav>
+
         </div>
       </div>
     </div>

@@ -1,7 +1,8 @@
-// @import '../../../variables.scss';
+@import '../../../variables.scss';
+
 .admin-page{
 h2{
-  color: #fff;
+  color: $white;
   font-family: 'Courier New', Courier, monospace;
 }
 .add-product {
@@ -11,7 +12,7 @@ h2{
     font-family: 'Courier New', Courier, monospace;
     font-weight: 600;
     width: 100%;
-    color: #fff;
+    color: $white;
     text-align: left;
     display: block;
     margin: 0 0 10px 0;
@@ -35,7 +36,7 @@ h2{
     width: 100%;
     max-width: 180px;
     background-color: green;
-    color: #fff;
+    color: $white;
     display: block;
     padding: 5px 10px;
     margin: 25px auto;

@@ -1,6 +1,7 @@
 import "./item.component.scss";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Quantity from "../quantity/quantity.component";
 
 const {
   vegan,
@@ -30,10 +31,10 @@ const Item = (props) => {
   const onMouseLeave = () => {
     setHover(false);
   };
+  
   const increment = () => {
     setCount(count + 1);
   };
-
   const decrement = () => {
     setCount(count <= 1 ? 1 : count - 1);
   };
@@ -132,20 +133,7 @@ const Item = (props) => {
           <h3>{props.title}</h3>
         </div>
         <div className="price">Ціна: {props.price} грн.</div>
-        <div className="quantity-input">
-          <button className="quantity-input__decr" onClick={decrement}>
-            &mdash;
-          </button>
-          <input
-            className="quantity-input__windpw"
-            type="number"
-            value={count}
-            readOnly
-          />
-          <button className="quantity-input__incr" onClick={increment}>
-            &#xff0b;
-          </button>
-        </div>
+        <Quantity initialCount={initialCount} increment={increment} decrement={decrement} count={count}/>
         <div className="shortDescription">{props.shortDescription}</div>
       </div>
       <div className="card-btn">
@@ -162,7 +150,8 @@ const Item = (props) => {
               title: props.title,
               photo: props.photo,
               price: props.price,
-              count,
+              // count,
+              count: count
             });
             initialCount();
           }}

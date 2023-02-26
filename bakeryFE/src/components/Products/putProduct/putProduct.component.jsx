@@ -18,6 +18,7 @@ export default class EditProduct extends Component {
     this.onChangeRaw = this.onChangeRaw.bind(this);
     this.onChangeSugarFree = this.onChangeSugarFree.bind(this);
     this.onChangeGlutenFree = this.onChangeGlutenFree.bind(this);
+    this.onChangeCategory = this.onChangeCategory.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
@@ -33,17 +34,15 @@ export default class EditProduct extends Component {
       vegan: false,
       raw: false,
       sugarFree: false,
+      category: undefined,
       glutenFree: false,
     };
   }
   componentDidMount() {
     const id = window.location.href.split("/")[5].slice(4);
-    // const id = FullId.slice(4);
 
     getProduct(id).then((res) => {
       const product = res.data;
-      // console.log(product)
-      // console.log(this.state)
       this.setState({
         id: product._id,
         title: product.title,
@@ -58,6 +57,7 @@ export default class EditProduct extends Component {
         raw: product.raw,
         sugarFree: product.sugarFree,
         glutenFree: product.glutenFree,
+        category: product.category
       });
     });
   }
@@ -97,6 +97,9 @@ export default class EditProduct extends Component {
   onChangeGlutenFree(event) {
     this.setState({ glutenFree: event.target.value });
   }
+  onChangeCategory(event) {
+    this.setState({category: event.target.value});
+  }
 
   onSubmit(e) {
     e.preventDefault();
@@ -114,12 +117,17 @@ export default class EditProduct extends Component {
       raw: this.state.raw,
       sugarFree: this.state.sugarFree,
       glutenFree: this.state.glutenFree,
+      category: this.state.category
     };
     putProduct(product)
-      .then((res) => console.log(res))
+      .then((res) => {
+        window.location = "/admin-page";
+        console.log(res)
+      }
+      )
       .catch((err) => console.log(err));
 
-    window.location = "/admin-page";
+    
   }
 
   render() {
@@ -170,6 +178,22 @@ export default class EditProduct extends Component {
               onChange={this.onChangePrice}
               defaultValue={this.state.price}
             />
+
+          <label htmlFor="category">Категория</label>
+          <select
+            name="category"
+            id="category"
+            onChange={this.onChangeCategory}
+            value={this.state.category}
+          >
+            <option value="undefined">-</option>
+            <option value="Батончики">Батончики</option>
+            <option value="Печиво">Печиво</option>
+            <option value="Випічка">Випічка</option>
+            <option value="Спеції">Спеції</option>
+            <option value="Маси і начинки">Маси і начинки</option>
+          </select>
+
             <label htmlFor="availability">Наличие</label>
             <select
               name="availability"

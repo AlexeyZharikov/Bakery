@@ -83,6 +83,9 @@ const AdminItem = (props) => {
       <div className="admin-price">
         <b>Цена:</b> {props.price} грн.
       </div>
+      <div className="admin-category">
+        <b>категория:</b> {props.category}
+      </div>
       <div className="admin-short-description">
         <b>Краткое описание:</b> {props.shortDescription}
       </div>
@@ -101,4 +104,3 @@ const AdminItem = (props) => {
 
 export default AdminItem;
 
-// onClick={() => { openInNewTab(props.link) }}

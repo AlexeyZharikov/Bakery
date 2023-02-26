@@ -1,11 +1,13 @@
+@import '../../../../variables.scss';
+
 .Admin-card{
   font-family: 'Courier New', Courier, monospace;
   color: #000;
   display: block;
   width: 100%;
   text-align: left;
-  border: 1px solid #fff;
-  background-color: #FFF;
+  border: 1px solid $white;
+  background-color: $white;
   margin: 10px 0;
   padding: 5px;
 
@@ -32,7 +34,7 @@
       border: 1px solid #000;
       cursor: pointer;
       text-decoration: none;
-      background-color: #ccc;
+      background-color: $lightGrey;
       color: #000
     }
   }
