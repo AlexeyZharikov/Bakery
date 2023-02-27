@@ -12,7 +12,7 @@ const getProduct = (req, res) => {
   }
 
   return productModel
-  .find()
+  .find().sort({title: 1})
   .then((products) => res.status(200).json(products))
   .catch((err) => res.status(500).json(err));
   

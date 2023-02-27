@@ -56,9 +56,14 @@ const GetProducts = (props) => {
       setFiltered(products.filter((item) => item.category === name))
     }
 
+    const checkAvailability = (event) => {
+      event.target.checked === true ? setFiltered(filtered.filter((item) => item.availability === true)) :
+      setFiltered(products)
+    }
+
   return (
       <div className="products">
-        <Categories chooseCategory={chooseCategory} />
+        <Categories chooseCategory={chooseCategory} checkAvailability={checkAvailability}/>
         <div className="products-inner">{items}</div>
       </div>
   );
