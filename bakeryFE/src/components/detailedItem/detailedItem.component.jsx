@@ -1,5 +1,7 @@
 import "./detailedItem.component.scss";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import Quantity from "../quantity/quantity.component";
 
 const {
   vegan,
@@ -11,12 +13,23 @@ const {
 } = require("../../assets/labels");
 
 const DetailedItem = (props) => {
+  const [count, setCount] = useState(1);
+
+  const increment = () => {
+    setCount(count + 1);
+  };
+  const decrement = () => {
+    setCount(count <= 1 ? 1 : count - 1);
+  };
+  const initialCount = () => {
+    setCount(1);
+  };
 
   return (
     <div className="detailed-item">
       <div className="detailed-item-content">
         <div className="detailed-item-photo">
-        <div
+          <div
             className="mask"
             style={
               props.product.availability === true
@@ -71,9 +84,9 @@ const DetailedItem = (props) => {
               src={raw}
               alt="raw"
               style={
-                props.product.raw === true 
-                ? { display: "block" } 
-                : { display: "none" }
+                props.product.raw === true
+                  ? { display: "block" }
+                  : { display: "none" }
               }
             />
             <img
@@ -95,12 +108,38 @@ const DetailedItem = (props) => {
               }
             />
           </div>
-          <div className="longDescription">{props.product.longDescription}</div>
+          <Quantity
+            initialCount={initialCount}
+            increment={increment}
+            decrement={decrement}
+            count={count}
+          />
           <div className="price">
             Ціна: <span>{props.product.price}</span> грн.
           </div>
+          <div className="longDescription"><span>Опис: </span><br/>{props.product.longDescription}</div>
+
           <div className="buttons">
-            <Link className="back-btn" to={"/store"}>Повернутись до товарів</Link>
+            <button
+              disabled={props.product.availability === false}
+              id="submit-btn"
+              className="add-to-cart"
+              onClick={() => {
+                props.onAdd({
+                  id: props.product.id,
+                  title: props.product.title,
+                  photo: props.product.photo,
+                  price: props.product.price,
+                  count: count,
+                });
+                initialCount();
+              }}
+            >
+              Додати до кошика
+            </button>
+            <Link className="back-btn" to={"/store"}>
+              Повернутись
+            </Link>
           </div>
         </div>
       </div>

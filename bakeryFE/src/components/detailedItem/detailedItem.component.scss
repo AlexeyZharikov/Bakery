@@ -73,6 +73,10 @@
       .longDescription {
         font-family: $secondaryTextFF;
         font-size: 15px;
+        span{
+          font-family: $mainTextFF;
+          font-size: 20px;
+        }
       }
       .price {
         font-size: 20px;
@@ -83,23 +87,44 @@
       .buttons {
         position: absolute;
         bottom: 15px;
-        right: 0;
-        .back-btn {
-          background-color: $darkGreen;
-          color: $white;
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        .add-to-cart,
+        .back-btn{
+          cursor: pointer;
+          padding: 5px 10px;
+          max-width: 140px;
+          width: 100%;
+          margin: 0;
+          font-family: $secondaryTextFF;
+          font-size: 12px;
+          font-weight: 700;
+          display: inline-block;
           border-radius: 10px;
           -webkit-border-radius: 10px;
           -moz-border-radius: 10px;
           -ms-border-radius: 10px;
           -o-border-radius: 10px;
-          transition: color 0.2s linear;
-          text-decoration: none;
-          padding: 5px 10px;
-          max-width: 120px;
-          width: 100%;
+}
+
+        button.add-to-cart{
+          background-color: $lightGreen;
+          color: $white;
         }
-        .back-btn:hover {
-          color: $lightGreen;
+        .back-btn{
+          text-decoration: none;
+          background-color: $lightGrey;
+          color: $darkGreen;
+          padding: 5px 35px;
+        }
+        button:disabled,
+        button[disabled] {
+          border: 1px solid $lightGrey;
+          background-color: $lightGrey;
+          color: $white;
+          cursor: not-allowed;
         }
       }
     }

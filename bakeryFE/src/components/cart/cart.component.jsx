@@ -27,7 +27,7 @@ const Cart = (props) => {
     
 
     return (
-      <div className="full-Cart">
+      <div className="full-cart">
         <div className="orderId">Замовлення №{props.orderId}</div>
         {itemsInCart}
         <div className="total-price">
@@ -68,7 +68,7 @@ const Cart = (props) => {
         />
       )}
         {cartOpen && (
-          <div className="cart-popup">
+          <div className="cart-popup" tyle="overflow-y:auto;">
             {props.orders.length > 0
               ? showCartItems(props)
               : showNothing()}

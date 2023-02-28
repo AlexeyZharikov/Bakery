@@ -50,7 +50,7 @@ const ContentBlock = () => {
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/store" element={<Store onAdd={addToOrder} />} />
-          <Route path="/store/:id" element={<Details />} />
+          <Route path="/store/:id" element={<Details onAdd={addToOrder} />} />
           <Route path="/about" element={<About />} />
           <Route path="/checkout" element={<Checkout orders={orders} orderId={orderId} />} />
           {/* {login.username === "username" && login.password === "password" && ( )} } */}

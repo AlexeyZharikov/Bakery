@@ -31,7 +31,7 @@ const Item = (props) => {
   const onMouseLeave = () => {
     setHover(false);
   };
-  
+
   const increment = () => {
     setCount(count + 1);
   };
@@ -76,6 +76,7 @@ const Item = (props) => {
           />
           <div className="labels">
             <img
+              className="label"
               src={halal}
               alt="halal"
               style={
@@ -85,6 +86,7 @@ const Item = (props) => {
               }
             />
             <img
+              className="label"
               src={kosher}
               alt="kosher"
               style={
@@ -94,6 +96,7 @@ const Item = (props) => {
               }
             />
             <img
+              className="label"
               src={vegan}
               alt="vegan"
               style={
@@ -103,6 +106,7 @@ const Item = (props) => {
               }
             />
             <img
+              className="label"
               src={raw}
               alt="raw"
               style={
@@ -110,6 +114,7 @@ const Item = (props) => {
               }
             />
             <img
+              className="label"
               src={glutenFree}
               alt="glutem-free"
               style={
@@ -119,6 +124,7 @@ const Item = (props) => {
               }
             />
             <img
+              className="label"
               src={sugarFree}
               alt="shugar-free"
               style={

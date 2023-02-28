@@ -1,10 +1,19 @@
-const refresh = (req,res, next) =>  {
+const adminUserModel = require("../../../models").adminUserModel
+
+const refresh = (req,res ) =>  {
   try {
-    res.json([1, 2, 3])
+
   }
   catch(e){
 
   }
 }
 
-module.exports = refresh
+const getUsers = (req, res) => {
+  return adminUserModel
+  .find()
+  .then((users) => res.status(200).json(users))
+  .catch((err) => res.status(500).json(err));
+}
+
+module.exports = { refresh,  getUsers} 

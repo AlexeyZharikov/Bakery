@@ -7,7 +7,7 @@ const Details = (props) => {
     <div className="details">
       <div className="container">
         <h2>Детальна інформація про продукт</h2>
-        <GetProduct/>
+        <GetProduct onAdd={props.onAdd}/>
     </div>
   </div>
   )

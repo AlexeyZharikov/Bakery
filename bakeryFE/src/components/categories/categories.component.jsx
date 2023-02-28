@@ -46,7 +46,7 @@ const Categories = (props) => {
           ))}
         </select>
       </div>
-      <div className="availability-filter">
+      {/* <div className="availability-filter">
         <label htmlFor="availability-chkbox">Наявність товару: </label>
         <input
         name="availability-chkbox"
@@ -55,7 +55,7 @@ const Categories = (props) => {
           onChange={props.checkAvailability}
           value={false}
         />
-      </div>
+      </div> */}
     </div>
   );
 };
