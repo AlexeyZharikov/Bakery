@@ -21,6 +21,11 @@ aside, footer, header, section{
 }
 html, body{
   min-width: $minWidth;
+
+
+
+  height: 100%;
+
 }
 body{
   background-color: $lightGrey;
@@ -30,6 +35,8 @@ body{
   text-align: center;
   width: 100%;
   margin: 0 auto;
+
+  position: relative;
   
 
   background-image: url("./assets/Food-Pyramid-Featured-Image.jpg.webp");

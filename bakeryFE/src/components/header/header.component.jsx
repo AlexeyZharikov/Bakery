@@ -2,10 +2,12 @@ import "./header.component.scss";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { BsInstagram } from "react-icons/bs";
 import Cart from "../cart/cart.component";
+import { useState } from "react";
 
 const Header = (props) => {
   const location = useLocation();
   const pathname = location.pathname;
+
   // const [items, setItems] = useState([]);
 
   // useEffect(() => {
@@ -29,9 +31,9 @@ const Header = (props) => {
   return (
     <div
       className={
-        pathname === "/admin-page" ||
-        pathname === `/checkout/` ||
-        pathname === "/admin-page/edit/"
+        pathname === '/admin-page/' ||
+        pathname === '/checkout/' ||
+        pathname === '/admin-page/edit/'
           ? "header display-none"
           : "header display-block"
       }
@@ -80,12 +82,8 @@ const Header = (props) => {
                 orderId={props.orderId}
                 onDelete={props.onDelete}
               />
-              
-             
-
             </div>
           </nav>
-
         </div>
       </div>
     </div>

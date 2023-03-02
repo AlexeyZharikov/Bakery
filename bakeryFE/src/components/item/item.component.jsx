@@ -138,7 +138,7 @@ const Item = (props) => {
         <div className="title">
           <h3>{props.title}</h3>
         </div>
-        <div className="price">Ціна: {props.price} грн.</div>
+        <div className="price">Ціна: {props.price}<span>&#x20B4;</span></div>
         <Quantity initialCount={initialCount} increment={increment} decrement={decrement} count={count}/>
         <div className="shortDescription">{props.shortDescription}</div>
       </div>

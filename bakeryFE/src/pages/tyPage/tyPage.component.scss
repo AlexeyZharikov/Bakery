@@ -1,0 +1,18 @@
+@import '../../variables.scss';
+
+.ty_page{
+  .ty_paage-content{
+    .sup_title{
+      font-size: 50px;
+      color: $white;
+      span{
+        font-size:100px;
+        font-weight: 300;
+      }
+    }
+    .sub_title{
+      font-size: 30px;
+      color: $white;
+    }
+  }
+}

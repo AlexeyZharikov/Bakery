@@ -20,7 +20,7 @@ const CartItem = (props) => {
           </div>
         </div>
         {/* <div className="price" >{props.price * props.count} грн.</div> */}
-        <div className="price" >{totalPrice} грн.</div>
+        <div className="price" >{totalPrice} <span>&#x20B4;</span></div>
         <FaTrash className="del-icon" onClick={() => {props.onDelete(props.id); }}/>
       </div>
     </div>

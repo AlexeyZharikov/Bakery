@@ -1,20 +1,26 @@
 @import "../../variables.scss";
 
 .checkout {
-  padding-top: 10px;
-  .checkout-inner {
+  padding-top: 40px;
+  .checkout-inner{
     background-color: $white;
     max-width: 600px;
     width: 100%;
     margin: 0 auto;
     padding-bottom: 10px;
-    .checkout-card {
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    .checkout-card{
       background-color: $white;
       .checkout-header {
         font-size: 25px;
         padding: 7px 0 10px 0;
       }
       .cart-item {
+        max-width: 600px;
         width: 100%;
         .cart-item-context {
           .cart-item-photo {
@@ -86,10 +92,12 @@
           text-align: center;
           margin: 0 auto;
           .button {
+            font-family: $mainTextFF;
+            font-size: 20px;
             border: 1px solid $darkGreen;
-            max-width: 160px;
+            max-width: 200px;
             width: 100%;
-            margin: 0 auto;
+            margin: 20px auto;
             padding: 7px 5px;
             background-color: $darkGreen;
             color: $white;

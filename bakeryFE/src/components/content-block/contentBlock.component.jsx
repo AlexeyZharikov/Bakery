@@ -1,4 +1,4 @@
-import './contentBlock.component.scss';
+import "./contentBlock.component.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "../header/header.component";
 import Admin from "../../pages/admin/admin.page";
@@ -8,6 +8,8 @@ import About from "../../pages/about/about.page";
 import Details from "../../pages/details/details.page";
 import EditPage from "../../pages/edit-page/edit-page.page";
 import Checkout from "../../pages/checkout/checkout.page";
+import Footer from "../footer/footer.component";
+import TYPage from "../../pages/tyPage/tyPage.component";
 import { useState } from "react";
 
 const ContentBlock = () => {
@@ -31,12 +33,15 @@ const ContentBlock = () => {
           orders: orders,
         },
       ]);
-
   };
 
   const deleteOrderItem = (id) => {
     setOrders(orders.filter((item) => item.id !== id));
   };
+
+  const initialStateOrders = () => {
+    setOrders([])
+  }
 
   return (
     <div className="contentBlock">
@@ -47,17 +52,23 @@ const ContentBlock = () => {
           orderId={orderId}
           onDelete={deleteOrderItem}
         />
-        <Routes>
-          <Route path="/" element={<Main />} />
-          <Route path="/store" element={<Store onAdd={addToOrder} />} />
-          <Route path="/store/:id" element={<Details onAdd={addToOrder} />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/checkout" element={<Checkout orders={orders} orderId={orderId} />} />
-          {/* {login.username === "username" && login.password === "password" && ( )} } */}
-
-          <Route path="/admin-page" element={<Admin />} />
-          <Route path="/admin-page/:id" element={<EditPage />} />
-        </Routes>
+        <div className="wrapper">
+          <Routes>
+            <Route path="/" element={<Main />} />
+            <Route path="/store" element={<Store onAdd={addToOrder} />} />
+            <Route path="/store/:id" element={<Details onAdd={addToOrder} />} />
+            <Route path="/about" element={<About />} />
+            <Route
+              path="/checkout"
+              element={<Checkout initialStateOrders={initialStateOrders} orders={orders} orderId={orderId} />}
+            />
+            {/* {login.username === "username" && login.password === "password" && ( )} } */}
+            <Route path="/thank-you" element={<TYPage />}/>
+            <Route path="/admin-page" element={<Admin />} />
+            <Route path="/admin-page/:id" element={<EditPage />} />
+          </Routes>
+        </div>
+        <Footer />
       </BrowserRouter>
     </div>
   );

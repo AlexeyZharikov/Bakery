@@ -4,6 +4,7 @@ import { useState } from "react";
 import { BsCartCheck, BsCartDash } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
+
 const Cart = (props) => {
   let [cartOpen, setCartOpen] = useState(false);
 
@@ -31,10 +32,10 @@ const Cart = (props) => {
         <div className="orderId">Замовлення №{props.orderId}</div>
         {itemsInCart}
         <div className="total-price">
-          Всього: <span>{total}</span> грн.
+          Всього: <span>{total}</span><span>&#x20B4;</span>
         </div>
         <div className="checkout-btn">
-          <Link to={`checkout/?id=${props.orderId}`}>
+          <Link to={`checkout/?id=${props.orderId}`} onClick={() => openCart()}>
             Оформити замовлення
           </Link>
         </div>
