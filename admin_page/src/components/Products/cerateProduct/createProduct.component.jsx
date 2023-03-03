@@ -100,17 +100,15 @@ export default class CreateProduct extends Component {
       
     };
 
-    // console.log(product);
-
     postProduct(product)
       .then((res) => {
-        console.log(res.data);
+        console.log(`Product ${product.title} was added`);
       })
       .catch((error) => {
         console.log(error);
       });
 
-      window.location  = '/admin-page'
+      window.location  = '/'
   }
 
   render() {

@@ -1,0 +1,24 @@
+@import '../../../variables.scss';
+
+.product{
+  .loading{
+    .loading-spinner{
+      max-width: 30px;
+      width: 100%;
+      margin: 20px auto;
+      height: 30px;
+      border: 4px dotted $lightGreen;
+      border-radius: 50%;
+      animation: spinner 2.5s linear infinite;
+      -webkit-animation: spinner 2.5s linear infinite;
+    }
+    @keyframes spinner {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+@import '../../variables.scss';
+
+.all-orders{
+  min-height: 200px;
+  max-height: 200px;
+  overflow-y: auto;
+
+.all-orders-inner{
+  table, th, td {
+    font-size: 12px;
+    text-align: center;
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  table{
+    width: 100%;
+  }
+  .order-prod-details{
+    width: 100%;
+    border: none;
+    th, td {
+      border: none;
+      border-collapse: collapse;
+      text-align: center;
+    }
+  }
+
+}
+}
+// .order-item{
+//   font-size: 10px;
+//   width: 100%;
+//   border: 1px solid $black;
+//   padding: 10px;
+//   text-align: left;
+//   .products-list{
+//     margin: 10px 0;
+//     .order-prod-details{
+//       margin: 10px 0;
+//       padding-left: 20px;
+
+      
+//     }
+
+//   }
+// }

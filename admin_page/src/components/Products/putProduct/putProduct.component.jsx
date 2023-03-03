@@ -39,7 +39,7 @@ export default class EditProduct extends Component {
     };
   }
   componentDidMount() {
-    const id = window.location.href.split("/")[5].slice(4);
+    const id = window.location.href.split("/")[4].slice(4);
 
     getProduct(id).then((res) => {
       const product = res.data;
@@ -121,8 +121,8 @@ export default class EditProduct extends Component {
     };
     putProduct(product)
       .then((res) => {
-        window.location = "/admin-page";
-        console.log(res)
+        window.location = "/";
+        console.log(`Product ${product.titlle} was changed`)
       }
       )
       .catch((err) => console.log(err));

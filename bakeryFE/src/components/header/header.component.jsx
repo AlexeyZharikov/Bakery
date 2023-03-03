@@ -2,7 +2,6 @@ import "./header.component.scss";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { BsInstagram } from "react-icons/bs";
 import Cart from "../cart/cart.component";
-import { useState } from "react";
 
 const Header = (props) => {
   const location = useLocation();
@@ -31,9 +30,7 @@ const Header = (props) => {
   return (
     <div
       className={
-        pathname === '/admin-page/' ||
-        pathname === '/checkout/' ||
-        pathname === '/admin-page/edit/'
+        pathname === '/checkout'
           ? "header display-none"
           : "header display-block"
       }

@@ -13,15 +13,15 @@ const Checkout = (props) => {
   const [orderToBE, setOrderToBE ] = useState({
     orderNum: props.orderId,
     items: props.orders.map((item) => { 
-      return ({title: item.title, 
+      return ({
+        title: item.title, 
         count: item.count, 
-        price: item.price })
+        price: item.price * item.count})
     }),
     total: total,
     clientName: '',
     clientPhone: '',
-    clientEmail:'',
-    // orders: []
+    clientEmail:''
   })
 
 

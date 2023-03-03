@@ -24,7 +24,8 @@
     }
     .nav {
       font-size: 1.5rem;
-      
+      max-width: 600px;
+      width: 100%;
       position: relative;
       a.nav-link {
         text-transform: uppercase;
@@ -36,15 +37,20 @@
         color: $white;
         text-decoration: none;
         transition: color 0.2s;
+        max-width: 110px;
+        width: 100%;
         margin: 0 20px;
         -webkit-transition: color 0.2s linear;
         -moz-transition: color 0.2s linear;
         -ms-transition: color 0.2s linear;
         -o-transition: color 0.2s linear;
       }
-      // a:last-child{
+      a.nav-link:nth-child(4){
+        max-width: 100px;
+        width: 100%;
+        margin: 0 auto;
+      }
 
-      // }
       a.nav-link::after {
         content: "";
         opacity: 0;

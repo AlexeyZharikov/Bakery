@@ -1,0 +1,22 @@
+@import "../../variables.scss";
+
+.admin-page {
+  h2 {
+    padding: 20px 0;
+    text-align: center;
+  }
+  .admin-page-inner {
+    // display: flex;
+    // justify-content: space-around;
+    .orders-info {
+      // max-width: 500px;
+      width: 100%;
+      font-family: $secondaryTextFF;
+      text-align: left;
+
+      .all-orders-inner {
+        background-color: $white;
+      }
+    }
+  }
+}

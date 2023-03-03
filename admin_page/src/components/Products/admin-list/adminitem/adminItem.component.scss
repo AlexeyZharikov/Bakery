@@ -2,7 +2,7 @@
 
 .Admin-card{
   font-family: 'Courier New', Courier, monospace;
-  color: #000;
+  color: $black;
   display: block;
   width: 100%;
   text-align: left;
@@ -22,20 +22,23 @@
     }
   }
   .admin-buttons{
+    display: flex;
     button{
       padding: 5px 7px;
       margin: 10px 10px 0 10px;
-      border: 1px solid black;
+      border: 1px solid $black;
       cursor: pointer;
+      font-size: 13px;
     }
     .edit{
       padding: 5px 7px;
       margin: 10px 10px 0 10px;
-      border: 1px solid #000;
+      border: 1px solid $black;
       cursor: pointer;
       text-decoration: none;
       background-color: $lightGrey;
-      color: #000
+      color: $black;
+      font-size: 13px;
     }
   }
 }

@@ -52,8 +52,9 @@ const Categories = (props) => {
         name="availability-chkbox"
         id="availability-chkbox"
           type="checkbox"
-          onChange={props.checkAvailability}
-          value={false}
+          onChange={(event) => props.checkAvailability(event)}
+          value="true"
+          
         />
       </div> */}
     </div>

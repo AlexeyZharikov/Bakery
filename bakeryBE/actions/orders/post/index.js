@@ -1,7 +1,3 @@
-
-// || '5665732602:AAFSyxzAD_kfLPujoIvWRaGEjuNqP2-DrVs';
-
-// || '468615365';
 const orderModel = require('../../../models').orderModel;
 const TelegramBot = require('node-telegram-bot-api');
 
@@ -11,7 +7,7 @@ const createOrder = (req, res) => {
   const chatId = process.env.CHAT_ID 
   const token = process.env.TOKEN 
   const bot = new TelegramBot(token, {
-    polling: true
+    polling: false
   });
 
   const {orderNum, items, total, clientName, clientPhone, clientEmail} = req.body
@@ -27,12 +23,10 @@ const createOrder = (req, res) => {
   return newOrder
   .save()
   .then(() => {
-    
-    let order = `Замовлення №: ${newOrder.orderNum}, Товари: ${newOrder.items.map(item => {
-      return ` назва: ${item.title}, кількість: ${item.count}, ціна за шт: ${item.price}`
-    })}, Загальна сума: ${newOrder.total}UAH, Телефон: ${newOrder.clientPhone}, Імʼя: ${newOrder.clientName}`
-    order ? bot.sendMessage(chatId, order) : console.log(error);
-    
+    let order = `Замовлення №: ${newOrder.orderNum}, Дата та час: ${(new Date()).toLocaleDateString() + ' ' +(new Date()).toLocaleTimeString()}, Товари: [ ${newOrder.items.map(item => {
+      return `{ назва: ${item.title}, кількість: ${item.count}, ціна: ${item.price}}`
+    })}], Загальна сума: ${newOrder.total}UAH, Телефон: ${newOrder.clientPhone}, Імʼя: ${newOrder.clientName}`
+    return order ? bot.sendMessage(chatId, order) : console.log(error);
   })
   .then(() => res.status(201).json('Order added'))
   .catch((err) => res.status(500).json(err.message));

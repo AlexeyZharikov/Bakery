@@ -24,7 +24,7 @@ export default class AdminList extends Component {
   }
 
   delProd(id){
-    deleteProduct(id).then(res => console.log(res.data));
+    deleteProduct(id).then(res => console.log(`Product ${id} was deleted`));
     this.setState({
       products: this.state.products.filter(item => item._id !== id)
     })

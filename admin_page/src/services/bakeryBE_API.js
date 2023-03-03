@@ -27,13 +27,4 @@ const getOrders = async () => {
   return await axios.get('http://localhost:4050/orders/?id');
 }
 
-// const getOrder = async (id) => {
-//   return await axios.get(`http://localhost:4050/orders/?id=${id}`);
-// }
-
-const createOrder = async (order) => {
-  return await axios.post('http://localhost:4050/orders', order);
-}
-
-
-export { getProducts, getProduct, postProduct, putProduct, deleteProduct, getOrders, createOrder };
+export { getProducts, getProduct, postProduct, putProduct, deleteProduct, getOrders };

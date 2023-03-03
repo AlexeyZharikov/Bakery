@@ -7,7 +7,7 @@ const CartItem = (props) => {
 
   return (
     <div className="cart-item" key={props.id}>
-      <div className="cart-item-context">
+      <div className="cart-item-content">
         <div className="cart-item-photo">
           <img src={props.photo} alt="product" />
         </div>

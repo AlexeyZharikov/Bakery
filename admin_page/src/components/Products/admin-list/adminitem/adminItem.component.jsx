@@ -21,11 +21,13 @@ const AdminItem = (props) => {
       <div className="admin-title">
         <b>Название: {props.title}</b>
       </div>
-      <div>{props.id}</div>
+      <div className="admin-prod-id">
+        <b>id продукта: </b>{props.id}
+      </div>
       <div className="admin-photo-item">
         <div className="admin-photo-link">
-          <b>Ссылка на фото:</b>
-          {props.photo}
+          <b>Ссылка на фото: </b>
+          <Link to={props.photo} target="__blank">{props.photo}</Link>
         </div>
         <div className="admin-availability">
           <b>Наличие: </b>

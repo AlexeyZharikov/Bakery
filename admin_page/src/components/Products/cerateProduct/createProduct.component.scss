@@ -6,7 +6,8 @@ h2{
   font-family: 'Courier New', Courier, monospace;
 }
 .add-product {
-
+  max-width: 500px;
+  width: 100%;
   label {
     font-size: 20px;
     font-family: 'Courier New', Courier, monospace;
@@ -19,16 +20,16 @@ h2{
   }
   input {
     margin: 0 0 25px 0;
-    width: 50%;
+    width: 100%;
     display: block;
   }
   textarea {
-    width: 50%;
+    width: 100%;
     display: block;
     margin: 0 0 25px 0;
   }
   select {
-    width: 50%;
+    width: 100%;
     display: block;
     margin: 0 0 25px 0;
   }

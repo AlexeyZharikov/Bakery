@@ -21,7 +21,6 @@ const Cart = (props) => {
         price={item.price}
         count={item.count}
       />
-      
     ));
 
     props.orders.forEach((item) => (total += item.price * item.count));
