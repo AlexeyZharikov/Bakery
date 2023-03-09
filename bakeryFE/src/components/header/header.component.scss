@@ -5,7 +5,7 @@
   padding: 10px 0;
   width: 100%;
   .header-inner {
-    padding-right: 75px;
+    padding: 0 75px 0 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -36,10 +36,10 @@
         font-weight: 700;
         color: $white;
         text-decoration: none;
-        transition: color 0.2s;
         max-width: 110px;
         width: 100%;
         margin: 0 20px;
+        transition: color 0.2s;
         -webkit-transition: color 0.2s linear;
         -moz-transition: color 0.2s linear;
         -ms-transition: color 0.2s linear;
@@ -156,4 +156,11 @@
 }
 .header.display-none{
   display: none;
+}
+
+
+@media only screen and (max-width: 768px){
+  .header {
+    display: none!important;
+  }
 }

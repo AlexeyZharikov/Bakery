@@ -10,6 +10,7 @@ import Details from "../../pages/details/details.page";
 import Checkout from "../../pages/checkout/checkout.page";
 import Footer from "../footer/footer.component";
 import TYPage from "../../pages/tyPage/tyPage.component";
+import Burger from "../burgerMenuHeader/burgerMenuHeader.component";
 import { useState } from "react";
 
 const ContentBlock = () => {
@@ -52,6 +53,12 @@ const ContentBlock = () => {
           orderId={orderId}
           onDelete={deleteOrderItem}
         />
+        <Burger
+          orders={orders}
+          setOrders={setOrders}
+          orderId={orderId}
+          onDelete={deleteOrderItem}
+        />
         <div className="wrapper">
           <Routes>
             <Route path="/" element={<Main />} />
@@ -62,10 +69,7 @@ const ContentBlock = () => {
               path="/checkout"
               element={<Checkout initialStateOrders={initialStateOrders} orders={orders} orderId={orderId} />}
             />
-            {/* {login.username === "username" && login.password === "password" && ( )} } */}
             <Route path="/thank-you" element={<TYPage />}/>
-            {/* <Route path="/admin-page" element={<Admin />} />
-            <Route path="/admin-page/:id" element={<EditPage />} /> */}
           </Routes>
         </div>
         <Footer />

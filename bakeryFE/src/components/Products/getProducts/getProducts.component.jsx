@@ -8,7 +8,8 @@ const GetProducts = (props) => {
   const [products, setProducts] = useState([]);
   const [filtered, setFiltered] = useState([]);
   const [loading, setLoading] = useState(false);
-  
+  const [available, setAvailable] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState("Всі");
 
   useEffect(() => {
     setLoading(true);
@@ -23,10 +24,27 @@ const GetProducts = (props) => {
       });
   }, []);
 
+  useEffect(() => {
+    const filterItemsInArray = () => {
+      if (available) {
+        return selectedCategory === "Всі"
+          ? products.filter((item) => !!item.availability)
+          : products.filter(
+              (item) =>
+                item.category === selectedCategory && !!item.availability
+            );
+      }
+      return selectedCategory === "Всі"
+        ? products
+        : products.filter((item) => item.category === selectedCategory)
+    };
+    const res = filterItemsInArray();
+    setFiltered(res);
+  }, [available, selectedCategory, products]);
+
   let items = filtered.map((item) => {
     return (
       <Item
-        // count={this.state.count}
         key={item._id}
         id={item._id}
         title={item.title}
@@ -46,25 +64,20 @@ const GetProducts = (props) => {
     );
   });
 
-  const chooseCategory = (name) => {
-    name === "Всі"
-      ? setFiltered(products) 
-      : setFiltered(products.filter((item) => item.category === name));
-  };
-   
-
-  // const checkAvailability = (event) => {
-  //   event.target.checked ?
-  //     setFiltered(filtered.filter((item) => item.availability === event.target.value)) : setFiltered([...filtered, event.target.value])
-  // }
-
   return (
     <div className="products">
       <Categories
-        chooseCategory={chooseCategory}
-        // checkAvailability={checkAvailability}
+        chooseCategory={setSelectedCategory}
+        checkAvailability={setAvailable}
+        avaialble={available}
       />
-      {loading ? <div className='loading'><div className="loading-spinner"></div></div> : <div className="products-inner">{items} </div>}
+      {loading ? (
+        <div className="loading">
+          <div className="loading-spinner"></div>
+        </div>
+      ) : (
+        <div className="products-inner">{items}</div>
+      )}
     </div>
   );
 };

@@ -2,7 +2,7 @@
 
 .checkout {
   padding-top: 40px;
-  .checkout-inner{
+  .checkout-inner {
     background-color: $white;
     max-width: 600px;
     width: 100%;
@@ -13,8 +13,9 @@
     -moz-border-radius: 20px;
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
-    .checkout-card{
+    .checkout-card {
       background-color: $white;
+      border-radius: inherit;
       .checkout-header {
         font-size: 25px;
         padding: 7px 0 10px 0;
@@ -22,7 +23,7 @@
       .cart-item {
         max-width: 600px;
         width: 100%;
-        .cart-item-context {
+        .cart-item-content {
           .cart-item-photo {
             max-width: 100px;
             padding: 0px 15px;
@@ -118,6 +119,17 @@
           }
         }
       }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .checkout {
+    padding: 40px 15px 0;
+    .checkout-inner {
+      max-width: 500px;
+      width: 100%;
+      margin: 0 auto;
     }
   }
 }

@@ -20,7 +20,7 @@
   -ms-border-radius: 15px;
   -o-border-radius: 15px;
   overflow-y: scroll;
-  .emptyp{
+  .empty{
     font-size: 20px;
     margin: 10px auto;
   }
@@ -29,10 +29,12 @@
     max-height: 448px;
     .orderId{
       max-width: 430px;
+      font-size: 25px;
     }
     .total-price {
       text-align: right;
       margin-right: 10px;
+      font-size: 20px;
       span {
         font-weight: 700;
       }

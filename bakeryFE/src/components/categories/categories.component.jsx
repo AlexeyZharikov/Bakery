@@ -46,17 +46,16 @@ const Categories = (props) => {
           ))}
         </select>
       </div>
-      {/* <div className="availability-filter">
+      <div className="availability-filter">
         <label htmlFor="availability-chkbox">Наявність товару: </label>
         <input
         name="availability-chkbox"
         id="availability-chkbox"
           type="checkbox"
-          onChange={(event) => props.checkAvailability(event)}
-          value="true"
-          
+          onChange={() => props.checkAvailability(!props.avaialble)}
+          // value="true"
         />
-      </div> */}
+      </div>
     </div>
   );
 };

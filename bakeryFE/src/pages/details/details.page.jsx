@@ -6,8 +6,10 @@ const Details = (props) => {
   return(
     <div className="details">
       <div className="container">
-        <h2>Детальна інформація про продукт</h2>
-        <GetProduct onAdd={props.onAdd}/>
+      <div className="details-inner">
+          <h2>Детальна інформація про продукт</h2>
+          <GetProduct onAdd={props.onAdd}/>
+        </div>
     </div>
   </div>
   )

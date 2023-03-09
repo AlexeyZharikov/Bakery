@@ -10,6 +10,7 @@ const Footer = () => {
     <div
       className={
         pathname === `/checkout/` ||
+        pathname === `/about` ||
         pathname === `/store/details/` ||
         pathname === "/"
           ? "footer display-none"
@@ -47,7 +48,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="copyright">Copyright 2023. All rights reserved</div>
+          <div className="copyright">&#169;Humane and Healthy. 2023</div>
         </div>
       </div>
     </div>

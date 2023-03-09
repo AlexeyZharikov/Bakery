@@ -1,13 +1,28 @@
-@import '../../variables.scss';
+@import "../../variables.scss";
 
-.details{
-  h2{
-    padding: 20px 0;
+.details {
+  h2 {
+    padding: 0 0 20px ;
     color: $white;
+    font-size: 30px;
   }
-  .product{
-    .detailed-item{
+  .product {
+    .detailed-item {
       margin: 0 auto 14px;
+    }
+  }
+}
+@media only screen and (max-width: 768px) {
+  .details {
+    .details-inner {
+      padding: 30px 0;
+      max-width: 500px;
+      width: 100%;
+      margin: 0 auto;
+      h2 {
+        font-size: 35px;
+        width: 100%;
+      }
     }
   }
 }

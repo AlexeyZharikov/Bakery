@@ -73,7 +73,7 @@
       .longDescription {
         font-family: $secondaryTextFF;
         font-size: 15px;
-        span{
+        span {
           font-family: $mainTextFF;
           font-size: 20px;
         }
@@ -92,7 +92,7 @@
         display: flex;
         justify-content: space-between;
         .add-to-cart,
-        .back-btn{
+        .back-btn {
           cursor: pointer;
           padding: 5px 10px;
           max-width: 140px;
@@ -107,13 +107,13 @@
           -moz-border-radius: 10px;
           -ms-border-radius: 10px;
           -o-border-radius: 10px;
-}
+        }
 
-        button.add-to-cart{
+        button.add-to-cart {
           background-color: $lightGreen;
           color: $white;
         }
-        .back-btn{
+        .back-btn {
           text-decoration: none;
           background-color: $lightGrey;
           color: $darkGreen;
@@ -125,6 +125,91 @@
           background-color: $lightGrey;
           color: $white;
           cursor: not-allowed;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .detailed-item {
+    max-width: 370px;
+    width: 100%;
+    .detailed-item-content {
+      flex-direction: column;
+      // max-width: 300px;
+      // height: 550px;
+      width: 100%;
+      .detailed-item-photo{
+        max-width: 350px;
+        width: 100%;
+        height: 350px;
+        margin: 0 auto;
+        .mask{
+          // height: 350px;
+          max-width: 350px;
+          width: 100%;
+          top: 10px;
+          bottom: 10px;
+          .availability{
+            top: 127px;
+            left: 57px;
+            font-size: 50px;
+          }
+        }
+        img{
+          width: 100%;
+          max-width: 350px;
+        }
+      }
+      .detailed-item-text {
+        padding: 5px 5px 0;
+        max-width: 350px;
+        .title{
+          font-size: 40px;
+        }
+        .labels {
+          height: 35px;
+          img {
+            max-width: 35px;
+            width: 100%;
+            height: auto;
+            display: block;
+          }
+        }
+        .longDescription {
+          font-family: $secondaryTextFF;
+          font-size: 20px;
+          min-height: 400px;
+          span {
+            font-family: $mainTextFF;
+            font-size: 40px;
+          }
+        }
+        .price {
+          font-size: 40px;
+          span {
+            font-weight: 700;
+            font-size: 35px;
+          }
+        }
+
+        .buttons {
+          flex-direction: column;
+          margin: 0 auto;
+          max-width: 280px;
+          position: relative;
+
+          .add-to-cart,
+          .back-btn {
+            margin: 10px auto;
+            max-width: 280px;
+            width: 100%;
+            font-size: 20px;
+            padding: 10px 15px;
+            font-size: 25px;
+            text-align: center;
+          }
         }
       }
     }

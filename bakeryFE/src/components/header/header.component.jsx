@@ -30,7 +30,7 @@ const Header = (props) => {
   return (
     <div
       className={
-        pathname === '/checkout'
+        pathname === "/checkout"
           ? "header display-none"
           : "header display-block"
       }
@@ -72,7 +72,11 @@ const Header = (props) => {
               <BsInstagram className="insta-link" />
             </NavLink>
             <div className="cart-link">
-            {props.orders.length > 0 ? (<div className="cart-items-count">{props.orders.length}</div>) : ""}
+              {props.orders.length > 0 ? (
+                <div className="cart-items-count">{props.orders.length}</div>
+              ) : (
+                ""
+              )}
               <Cart
                 orders={props.orders}
                 setOrders={props.setOrders}

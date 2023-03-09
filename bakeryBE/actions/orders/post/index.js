@@ -4,7 +4,8 @@ const TelegramBot = require('node-telegram-bot-api');
 
 
 const createOrder = (req, res) => {
-  const chatId = process.env.CHAT_ID 
+  const chatId1 = process.env.CHAT_ID1 
+  const chatId2 = process.env.CHAT_ID2
   const token = process.env.TOKEN 
   const bot = new TelegramBot(token, {
     polling: false
@@ -26,7 +27,13 @@ const createOrder = (req, res) => {
     let order = `Замовлення №: ${newOrder.orderNum}, Дата та час: ${(new Date()).toLocaleDateString() + ' ' +(new Date()).toLocaleTimeString()}, Товари: [ ${newOrder.items.map(item => {
       return `{ назва: ${item.title}, кількість: ${item.count}, ціна: ${item.price}}`
     })}], Загальна сума: ${newOrder.total}UAH, Телефон: ${newOrder.clientPhone}, Імʼя: ${newOrder.clientName}`
-    return order ? bot.sendMessage(chatId, order) : console.log(error);
+    return order ? bot.sendMessage(chatId1, order) : console.log(error);
+  })
+  .then(() => {
+    let order = `Замовлення №: ${newOrder.orderNum}, Дата та час: ${(new Date()).toLocaleDateString() + ' ' +(new Date()).toLocaleTimeString()}, Товари: [ ${newOrder.items.map(item => {
+      return `{ назва: ${item.title}, кількість: ${item.count}, ціна: ${item.price}}`
+    })}], Загальна сума: ${newOrder.total} грн., Телефон: ${newOrder.clientPhone}, Імʼя: ${newOrder.clientName}`
+    return order ? bot.sendMessage(chatId2, order) : console.log(error);
   })
   .then(() => res.status(201).json('Order added'))
   .catch((err) => res.status(500).json(err.message));

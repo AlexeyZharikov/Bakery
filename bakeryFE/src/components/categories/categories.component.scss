@@ -38,10 +38,40 @@
       outline: none !important;
     }
   }
-  // .availability-filter{
-  //   margin-left: 20px;
-  //   imput{
-  //     margin-left: 10px;
-  //   }
-  // }
+  .availability-filter{
+    margin-left: 20px;
+    color: $white;
+    #availability-chkbox{
+      margin-left: 10px;
+    }
+  }
 }
+
+
+
+@media only screen and (max-width: 768px){
+  .categories{
+    margin: 10px auto 10px ;
+    padding-top: 30px;
+    display: block;
+    .filter{
+
+      select{
+        font-size: 22px;
+        max-width: 150px;
+        width: 100%;
+      }
+    }
+    .filter, .availability-filter{
+      margin: 10px 20px 10px;
+      label {
+        font-size: 22px;
+      }
+    }
+
+    
+
+  }
+}
+
+

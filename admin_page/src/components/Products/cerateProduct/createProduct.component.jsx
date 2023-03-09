@@ -102,13 +102,14 @@ export default class CreateProduct extends Component {
 
     postProduct(product)
       .then((res) => {
-        console.log(`Product ${product.title} was added`);
+        console.log(res.data);
+        window.location  = '/'
       })
       .catch((error) => {
         console.log(error);
       });
 
-      window.location  = '/'
+      
   }
 
   render() {
