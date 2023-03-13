@@ -18,12 +18,80 @@
     .title {
       color: $darkGreen;
       font-size: 20px;
+      h3 {
+        .caution {
+          margin-left: 5px;
+          position: relative;
+          cursor: pointer;
+          width: 10px;
+          height: 10px;
+          background-image: url("../../assets/caution.png");
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          .tooltiptext {
+            position: absolute;
+            z-index: 1;
+            top: 10px;
+            left: 10px;
+            visibility: hidden;
+            width: 120px;
+            border: 1px solid $lightGrey;
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            -ms-border-radius: 5px;
+            -o-border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.8);
+            font-size: 10px;
+            font-weight: 400;
+            color: $black;
+            font-family: $secondaryTextFF;
+          }
+        }
+      }
+      .caution:hover .tooltiptext {
+        visibility: visible;
+      }
     }
     .photo-item {
       position: relative;
       max-width: 200px;
       width: 100%;
       margin: 0 auto;
+      .discount {
+        color: white;
+        background-color: $lightGreen;
+        position: absolute;
+        width: 100%;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        z-index: 1;
+        bottom: 30px;
+        cursor: pointer;
+        .tooltiptext {
+          position: absolute;
+          z-index: 1;
+          top: 10px;
+          left: 10px;
+          visibility: hidden;
+          width: 120px;
+          border: 1px solid $lightGrey;
+          border-radius: 5px;
+          -webkit-border-radius: 5px;
+          -moz-border-radius: 5px;
+          -ms-border-radius: 5px;
+          -o-border-radius: 5px;
+          background-color: rgba(255, 255, 255, 0.8);
+          font-size: 10px;
+          font-weight: 400;
+          color: $black;
+          font-family: $secondaryTextFF;
+        }
+      }
+      .discount:hover .tooltiptext {
+        visibility: visible;
+      }
       .mask {
         position: absolute;
         top: 0;
@@ -31,13 +99,12 @@
         max-width: 200px;
         width: 100%;
         height: 200px;
-
+        z-index: 2;
         border-radius: 20px;
         -webkit-border-radius: 20px;
         -moz-border-radius: 20px;
         -ms-border-radius: 20px;
         -o-border-radius: 20px;
-
         .availability {
           position: absolute;
           top: 75px;
@@ -82,17 +149,29 @@
         margin: 5px 0;
       }
     }
+    .setDiscount{
+      display: block;
+      text-align: left;
+      label{
+        margin-right: 10px;
+      }
+    }
     .shortDescription {
       text-align: left;
       font-family: $secondaryTextFF;
       font-size: 10px;
       margin-top: 5px;
+      .discount-desc {
+        display: flex;
+        span {
+          font-size: 9px;
+        }
+      }
     }
   }
   .card-btn {
     font-family: $secondaryTextFF;
     font-size: 14px;
-    // font-weight: 600;
     bottom: 20px;
     max-width: 155px;
     width: 100%;
@@ -139,8 +218,8 @@
     .card-content {
       height: 550px;
       .title {
-          font-size: 35px;
-          font-weight: 600;
+        font-size: 35px;
+        font-weight: 600;
       }
       .photo-item {
         max-width: 330px;
@@ -186,12 +265,11 @@
         margin-top: 10px;
         min-height: 50px;
       }
-
     }
     .card-btn {
       max-width: 280px;
       .add-to-cart,
-      .details{
+      .details {
         padding: 10px 15px;
         font-size: 25px;
       }

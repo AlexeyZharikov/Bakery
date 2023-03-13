@@ -1,45 +1,47 @@
-  @import '../../../variables.scss';
-  
-  .products{
-    max-width: 870px;
-    width: 100%;
-    margin: 20px auto 50px;
-    .loading{
-      .loading-spinner{
-        max-width: 30px;
-        width: 100%;
-        margin: 20px auto;
-        height: 30px;
-        border: 4px dotted $lightGreen;
-        border-radius: 50%;
-        animation: spinner 2.5s linear infinite;
-        -webkit-animation: spinner 2.5s linear infinite;
-      }
-      @keyframes spinner {
-        0% {
-          transform: rotate(0deg);
-        }
-        100% {
-          transform: rotate(360deg);
-        }
-      }
+@import "../../../variables.scss";
+
+.products {
+  max-width: 870px;
+  width: 100%;
+  margin: 20px auto 50px;
+  .loading {
+    .loading-spinner {
+      display: block;
+      max-width: 50px;
+      width: 100%;
+      margin: 25px auto;
+      background: url("../../../assets/loading.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 30px;
+      animation: spinner 2.5s linear infinite;
+      -webkit-animation: spinner 2.5s linear infinite;
     }
-    .products-inner{
-      display: flex;
-      flex-wrap: wrap;
+
+    @keyframes spinner {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
     }
   }
-
+  .products-inner {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
 
 // @media only screen and (max-width: 768px){
 //   .products-inner{
 //     justify-content: center;
 //   }
 // }
-@media only screen and (max-width: 869px){
-  .products{
+@media only screen and (max-width: 869px) {
+  .products {
     margin: 0 auto 50px;
-    .products-inner{
+    .products-inner {
       // justify-content: space-around;
       justify-content: center;
     }

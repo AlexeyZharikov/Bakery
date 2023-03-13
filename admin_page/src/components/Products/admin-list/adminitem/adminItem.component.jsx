@@ -85,6 +85,18 @@ const AdminItem = (props) => {
       <div className="admin-price">
         <b>Цена:</b> {props.price} грн.
       </div>
+      <div className="admin-discount">
+        <b>Скидка</b> {props.discount}
+      </div>
+      <div className="admin-disc-desc">
+        <b>Описание скидки</b> {props.discountDescription}
+      </div>
+      <div className="alergic">
+        <b>Возможна Аллергия</b> {props.alergic === true ? "Да" : "Нет"}
+      </div>
+      <div className="admin-alerg-desc">
+        <b>Описание Аллергия</b> {props.alergicDecription}
+      </div>
       <div className="admin-category">
         <b>категория:</b> {props.category}
       </div>

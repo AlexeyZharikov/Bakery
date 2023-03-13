@@ -19,6 +19,13 @@ export default class CreateProduct extends Component {
     this.onChangeSugarFree = this.onChangeSugarFree.bind(this);
     this.onChangeGlutenFree = this.onChangeGlutenFree.bind(this);
     this.onChangeCategory = this.onChangeCategory.bind(this);
+
+    this.onChangeAlergic = this.onChangeAlergic.bind(this);
+    this.onChangeAlergicDesc = this.onChangeAlergicDesc.bind(this);
+    this.onChangeDiscount = this.onChangeDiscount.bind(this);
+    this.onChangeDiscDesc = this.onChangeDiscDesc.bind(this);
+
+
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
@@ -27,7 +34,11 @@ export default class CreateProduct extends Component {
       shortDescription: "",
       longDescription: "",
       price: "",
+      discount: "",
+      discountDescription: "",
       availability: false,
+      alergic: false,
+      alergicDecription: "",
       halal: false,
       kosher: false,
       vegan: false,
@@ -49,34 +60,48 @@ export default class CreateProduct extends Component {
     this.setState({ shortDescription: p.target.value });
   }
   onChangeLongDescription(p) {
-      this.setState({ longDescription: p.target.value });
+    this.setState({ longDescription: p.target.value });
   }
   onChangeAvailability(p) {
-    this.setState({ availability: p.target.value });
+    this.setState({ availability: p.target.checked });
   }
   onChangeHalal(p) {
-    this.setState({ halal: p.target.value });
+    this.setState({ halal: p.target.checked });
   }
   onChangeKosher(p) {
-    this.setState({ kosher: p.target.value });
+    this.setState({ kosher: p.target.checked });
   }
   onChangeVegan(p) {
-    this.setState({ vegan: p.target.value });
+    this.setState({ vegan: p.target.checked });
   }
   onChangeRaw(p) {
-    this.setState({ raw: p.target.value });
+    this.setState({ raw: p.target.checked });
   }
   onChangePrice(p) {
     this.setState({ price: p.target.value });
   }
   onChangeSugarFree(p) {
-    this.setState({ sugarFree: p.target.value });
+    this.setState({ sugarFree: p.target.checked });
   }
   onChangeGlutenFree(p) {
-    this.setState({ glutenFree: p.target.value });
+    this.setState({ glutenFree: p.target.checked });
   }
   onChangeCategory(p) {
     this.setState({ category: p.target.value });
+  }
+
+
+  onChangeAlergic(p) {
+    this.setState({ alergic: p.target.checked });
+  }
+  onChangeAlergicDesc(p) {
+    this.setState({ alergicDecription: p.target.value });
+  }
+  onChangeDiscount(p) {
+    this.setState({ discount: p.target.value });
+  }
+  onChangeDiscDesc(p) {
+    this.setState({ discountDescription: p.target.value });
   }
 
 
@@ -89,27 +114,31 @@ export default class CreateProduct extends Component {
       shortDescription: this.state.shortDescription,
       longDescription: this.state.longDescription,
       price: this.state.price,
+      discount: this.state.discount,
+      discountDescription: this.state.discountDescription,
       category: this.state.category,
       availability: this.state.availability,
+      alergic: this.state.alergic,
+      alergicDecription: this.state.alergicDecription,
       halal: this.state.halal,
       kosher: this.state.kosher,
       vegan: this.state.vegan,
       raw: this.state.raw,
       sugarFree: this.state.sugarFree,
       glutenFree: this.state.glutenFree
-      
+
     };
 
     postProduct(product)
       .then((res) => {
         console.log(res.data);
-        window.location  = '/'
+        window.location = '/'
       })
       .catch((error) => {
         console.log(error);
       });
 
-      
+
   }
 
   render() {
@@ -160,6 +189,27 @@ export default class CreateProduct extends Component {
             onChange={this.onChangePrice}
           />
 
+          <label htmlFor="discount">Скидка</label>
+          <input
+            type="text"
+            name="discount"
+            id="discount"
+            value={this.state.discount}
+            onChange={this.onChangeDiscount}
+          />
+          <label htmlFor="discountDescription" style={this.state.discount !== "" ? { display: "block" } : { display: "none" }}>Описание скидки</label>
+          <textarea
+            style={this.state.discount !== "" ? { display: "block" } : { display: "none" }}
+            required={this.state.discount !== "" ? true : false}
+            rows="8"
+            name="discountDescription"
+            type="text"
+            id="discountDescription"
+            value={this.state.discountDescription}
+            onChange={this.onChangeDiscDesc}
+          />
+
+
           <label htmlFor="category">Категория</label>
           <select
             name="category"
@@ -172,82 +222,91 @@ export default class CreateProduct extends Component {
             <option value="Печиво">Печиво</option>
             <option value="Випічка">Випічка</option>
             <option value="Спеції">Спеції</option>
+            <option value="Гранола">Гранола</option>
             <option value="Маси і начинки">Маси і начинки</option>
           </select>
 
           <label htmlFor="availability">Наличие</label>
-          <select
+          <input type="checkbox"
             name="availability"
             id="availability"
-            onChange={this.onChangeAvailability}
             value={this.state.availability}
-          >
-            <option value="true">Да</option>
-            <option value="false">Нет</option>
-          </select>
+            checked={this.state.availability}
+            onChange={this.onChangeAvailability}
+          />
           <label htmlFor="halal">Halal</label>
-          <select
+          <input type="checkbox"
             name="halal"
             id="halal"
-            onChange={this.onChangeHalal}
             value={this.state.halal}
-          >
-            <option value="true">Да</option>
-            <option value="false">Нет</option>
-          </select>
+            checked={this.state.halal}
+            onChange={this.onChangeHalal}
+          />
 
           <label htmlFor="kosher">Kosher</label>
-          <select
+          <input type="checkbox"
             name="kosher"
             id="kosher"
-            onChange={this.onChangeKosher}
             value={this.state.kosher}
-          >
-            <option value="true">Да</option>
-            <option value="false">Нет</option>
-          </select>
+            checked={this.state.kosher}
+            onChange={this.onChangeKosher}
+          />
 
           <label htmlFor="vegan">Vegan</label>
-          <select
+          <input type="checkbox"
             name="vegan"
             id="vegan"
-            onChange={this.onChangeVegan}
             value={this.state.vegan}
-          >
-            <option value="true">Да</option>
-            <option value="false">Нет</option>
-          </select>
+            checked={this.state.vegan}
+            onChange={this.onChangeVegan}
+          />
 
           <label htmlFor="raw">Raw</label>
-          <select
+          <input type="checkbox"
             name="raw"
             id="raw"
-            onChange={this.onChangeRaw}
             value={this.state.raw}
-          >
-            <option value="true">Да</option>
-            <option value="false">Нет</option>
-          </select>
+            checked={this.state.raw}
+            onChange={this.onChangeRaw}
+          />
           <label htmlFor="sugarFree">Без сахара</label>
-          <select
+          <input type="checkbox"
             name="sugarFree"
             id="sugarFree"
-            onChange={this.onChangeSugarFree}
             value={this.state.sugarFree}
-          >
-            <option value="true">Да</option>
-            <option value="false">Нет</option>
-          </select>
+            checked={this.state.sugarFree}
+            onChange={this.onChangeSugarFree}
+          />
           <label htmlFor="glutenFree">Без глютена</label>
-          <select
+          <input type="checkbox"
             name="glutenFree"
             id="glutenFree"
-            onChange={this.onChangeGlutenFree}
             value={this.state.glutenFree}
-          >
-            <option value="true">Да</option>
-            <option value="false">Нет</option>
-          </select>
+            checked={this.state.glutenFree}
+            onChange={this.onChangeGlutenFree}
+          />
+          <label htmlFor="alergic">Возможна аллерги</label>
+          <input type="checkbox"
+            name="alergic"
+            id="alergic"
+            value={this.state.alergic}
+            checked={this.state.alergic}
+            onChange={this.onChangeAlergic}
+          />
+          <label htmlFor="alergicDecription" style={this.state.alergic === true ? { display: 'block' } : { display: 'none' }}>Описание аллергии</label>
+          <textarea
+            style={this.state.alergic === true ? { display: 'block' } : { display: 'none' }}
+            required={this.state.alergic === true ? true : false}
+            rows="8"
+            name="alergicDecription"
+            type="text"
+            id="alergicDecription"
+            value={this.state.alergicDecription}
+            onChange={this.onChangeAlergicDesc}
+          />
+
+
+
           <button type="submit" onClick={this.onSubmit}>
             Сохранить
           </button>

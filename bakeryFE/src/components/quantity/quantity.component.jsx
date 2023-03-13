@@ -5,7 +5,7 @@ const Quantity = (props) => {
     <div className="quantity-block">
       <div className="quantity-text">Оберіть кількість: </div>
       <div className="quantity-input">
-        <button className="quantity-input__decr" onClick={props.decrement}>
+        <button disabled={props.availability === false} className="quantity-input__decr" onClick={props.decrement}>
           &mdash;
         </button>
         <input
@@ -14,7 +14,7 @@ const Quantity = (props) => {
           value={props.count}
           readOnly
         />
-        <button className="quantity-input__incr" onClick={props.increment}>
+        <button disabled={props.availability === false} className="quantity-input__incr" onClick={props.increment}>
           &#xff0b;
         </button>
       </div>

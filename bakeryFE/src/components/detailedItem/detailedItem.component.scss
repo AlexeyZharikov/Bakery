@@ -61,6 +61,9 @@
         font-size: 25px;
         font-weight: 700;
       }
+      .caution{
+        font-size: 20px;
+      }
       .labels {
         display: flex;
         img {
@@ -73,15 +76,25 @@
       .longDescription {
         font-family: $secondaryTextFF;
         font-size: 15px;
+        white-space: break-spaces;
         span {
           font-family: $mainTextFF;
           font-size: 20px;
+          
         }
       }
       .price {
         font-size: 20px;
         span {
           font-weight: 700;
+        }
+      }
+      .setDiscount{
+        display: block;
+        text-align: left;
+        label{
+          margin-right: 10px;
+          font-size: 20px;
         }
       }
       .buttons {
@@ -184,6 +197,7 @@
           span {
             font-family: $mainTextFF;
             font-size: 40px;
+            
           }
         }
         .price {

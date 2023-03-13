@@ -1,12 +1,10 @@
 import "./contentBlock.component.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "../header/header.component";
-// import Admin from "../../pages/admin/admin.page";
 import Main from "../../pages/main/main.page";
 import Store from "../../pages/store/store.page";
 import About from "../../pages/about/about.page";
 import Details from "../../pages/details/details.page";
-// import EditPage from "../../pages/edit-page/edit-page.page";
 import Checkout from "../../pages/checkout/checkout.page";
 import Footer from "../footer/footer.component";
 import TYPage from "../../pages/tyPage/tyPage.component";

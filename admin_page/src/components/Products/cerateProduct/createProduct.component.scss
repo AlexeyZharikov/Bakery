@@ -8,25 +8,31 @@ h2{
 .add-product {
   max-width: 500px;
   width: 100%;
+  margin: 0 0 0 10px;
   label {
-    font-size: 20px;
+    font-size: 15px;
     font-family: 'Courier New', Courier, monospace;
     font-weight: 600;
-    width: 100%;
+    // width: 100%;
     color: $white;
     text-align: left;
-    display: block;
+    display: inline-block;
     margin: 0 0 10px 0;
   }
   input {
-    margin: 0 0 25px 0;
+    margin: 0 0 10px 0;
     width: 100%;
     display: block;
+  }
+  input[type="checkbox"]{
+    display: inline;
+    width: 10%;
   }
   textarea {
     width: 100%;
     display: block;
     margin: 0 0 25px 0;
+    white-space: pre-line;
   }
   select {
     width: 100%;

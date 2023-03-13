@@ -23,6 +23,14 @@ const productSchema = new Schema({
     type: Number,
     required: true
   },
+  discount: {
+    type: Number,
+    required: false
+  },
+  discountDescription: {
+    type: String,
+    required: false
+  },
   category: {
     type: String,
     required: true
@@ -30,6 +38,14 @@ const productSchema = new Schema({
   availability: {
     type: Boolean,
     required: true
+  },
+  alergic: {
+    type: Boolean,
+    required: true
+  },
+  alergicDecription: {
+    type: String,
+    required: false
   },
   halal: {
     type: Boolean,

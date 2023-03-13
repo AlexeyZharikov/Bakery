@@ -1,4 +1,4 @@
-@import '../../variables.scss';
+@import '../../../variables.scss';
 
 .all-orders{
   min-height: 200px;
@@ -6,6 +6,26 @@
   overflow-y: auto;
 
 .all-orders-inner{
+  .loading{
+    .loading-spinner{
+      max-width: 30px;
+      width: 100%;
+      margin: 20px auto;
+      height: 30px;
+      border: 4px dotted $black;
+      border-radius: 50%;
+      animation: spinner 2.5s linear infinite;
+      -webkit-animation: spinner 2.5s linear infinite;
+    }
+    @keyframes spinner {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  }
   table, th, td {
     font-size: 12px;
     text-align: center;
@@ -18,7 +38,7 @@
   .order-prod-details{
     width: 100%;
     border: none;
-    th, td {
+    th, td, tr {
       border: none;
       border-collapse: collapse;
       text-align: center;

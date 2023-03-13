@@ -1,7 +1,7 @@
 import './admin.page.scss';
 import CreateProduct from "../../components/Products/cerateProduct/createProduct.component";
 import AdminList from '../../components/Products/admin-list/adminList/adminList.component';
-import GetAllOrders from '../../components/orders/orders.component';
+import GetAllOrders from '../../components/orders/getOrders/orders.component';
 
 const Admin = () => {
 

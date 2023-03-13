@@ -14,6 +14,11 @@ const {
 
 const DetailedItem = (props) => {
   const [count, setCount] = useState(1);
+  const [isDiscount, setIsDiscount] = useState(false);
+  let price = 0;
+  isDiscount
+  ? price = Math.floor(props.product.price - (props.product.price / 100 * props.product.discount))
+  : price = props.product.price
 
   const increment = () => {
     setCount(count + 1);
@@ -52,6 +57,11 @@ const DetailedItem = (props) => {
         </div>
         <div className="detailed-item-text">
           <div className="title">{props.product.title}</div>
+          <div className="caution"
+              style={props.product.alergic === true
+                ? { display: "inline-block" }
+                : { display: "none" }
+              }>Увага! Може бути причиною алергічної реакції. <span>{props.product.alergicDecription}</span></div>
           <div className="labels">
             <img
               src={halal}
@@ -108,15 +118,27 @@ const DetailedItem = (props) => {
               }
             />
           </div>
+          {props.product.discount === null || props.product.discount === "" || props.product.discount === undefined ?
+          ""
+          : <div className="setDiscount">
+            <label htmlFor="disc-chkbx">На цей товар діє знижка за умов {props.product.discountDescription}.<br/> Активувати знижку</label>
+            <input id="disc-chkbx" name="disc-chkbx" type="checkbox" onChange={(e) => setIsDiscount( e.target.checked)} value={isDiscount} checked={isDiscount} />
+          </div>
+        }
           <Quantity
             initialCount={initialCount}
             increment={increment}
             decrement={decrement}
             count={count}
+            availability={props.product.availability}
           />
-          <div className="price">
+          {/* <div className="price">
             Ціна: <span>{props.product.price}</span> грн.
-          </div>
+          </div> */}
+          {isDiscount
+          ? <div className="price">Ціна: <s>{props.product.price}<span>&#x20B4;</span></s> {price}<span>&#x20B4;</span></div>
+          : <div className="price">Ціна: {props.product.price}<span>&#x20B4;</span></div>
+        }
           <div className="longDescription"><span>Опис: </span><br/>{props.product.longDescription}</div>
 
           <div className="buttons">
@@ -129,7 +151,7 @@ const DetailedItem = (props) => {
                   id: props.product.id,
                   title: props.product.title,
                   photo: props.product.photo,
-                  price: props.product.price,
+                  price: price,
                   count: count,
                 });
                 initialCount();

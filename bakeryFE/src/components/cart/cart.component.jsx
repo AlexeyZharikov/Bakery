@@ -20,6 +20,7 @@ const Cart = (props) => {
         photo={item.photo}
         price={item.price}
         count={item.count}
+        discount={item.discount}
       />
     ));
 
@@ -31,7 +32,7 @@ const Cart = (props) => {
         <div className="orderId">Замовлення №{props.orderId}</div>
         {itemsInCart}
         <div className="total-price">
-          Всього: <span>{total}</span><span>&#x20B4;</span>
+          Всього: <span>{Math.floor(total)}</span><span>&#x20B4;</span>
         </div>
         <div className="checkout-btn">
           <Link to={`checkout/?id=${props.orderId}`} onClick={() => openCart()}>

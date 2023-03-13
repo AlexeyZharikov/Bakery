@@ -1,11 +1,14 @@
-@import '../../../../variables.scss';
+@import "../../../../variables.scss";
 
-.admin-products{
+.admin-products {
   padding-bottom: 25px;
-width: 100%;
-  .admin-products-inner{
+  width: 100%;
+  .admin-products-inner {
+    display: flex;
+    justify-content: space-around;
     width: 100%;
     text-align: left;
     word-wrap: break-word;
+    flex-wrap: wrap;
   }
 }

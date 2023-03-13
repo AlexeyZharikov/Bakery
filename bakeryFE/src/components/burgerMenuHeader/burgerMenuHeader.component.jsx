@@ -6,43 +6,50 @@ import { BsInstagram } from "react-icons/bs";
 import Cart from "../cart/cart.component";
 
 export default class Burger extends Component {
-  showSettings(event) {
-    event.preventDefault();
+  constructor (props) {
+    super(props)
+    this.state = {
+      menuOpen: false
+    }
+  }
+
+  handleStateChange (state) {
+    this.setState({menuOpen: state.isOpen})  
+  }
+
+  closeMenu () {
+    this.setState({menuOpen: false})
   }
 
   render() {
     // NOTE: You also need to provide styles, see https://github.com/negomi/react-burger-menu#styling
     return (
       <div className="burger">
-        <Menu>
+        <Menu width={'240px'}
+           isOpen={this.state.menuOpen}
+           onStateChange={(state) => this.handleStateChange(state)}>
           <div className="header_logo">
-            {/* <Link to="/"></Link> */}
           </div>
           <NavLink
-            className={(navData) =>
-              navData.isActive ? "nav-link active" : "nav-link"
-            }
             to="/"
+            onClick={() => this.closeMenu()}
           >
             Головна
           </NavLink>
           <NavLink
-            className={(navData) =>
-              navData.isActive ? "nav-link active" : "nav-link"
-            }
             to="/store"
+            onClick={() => this.closeMenu()}
           >
             Магазин
           </NavLink>
           <NavLink
-            className={(navData) =>
-              navData.isActive ? "nav-link active" : "nav-link"
-            }
             to="/about"
+            onClick={() => this.closeMenu()}
           >
             Про Нас
           </NavLink>
           <NavLink
+              onClick={() => this.closeMenu()}
               className="nav-link"
               to="https://www.instagram.com/humane_and_healthy/"
             >

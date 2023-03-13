@@ -25,6 +25,10 @@ const Categories = (props) => {
     },
     {
       key: "6",
+      name: "Гранола",
+    },
+    {
+      key: "7",
       name: "Маси і начинки",
     },
   ]);

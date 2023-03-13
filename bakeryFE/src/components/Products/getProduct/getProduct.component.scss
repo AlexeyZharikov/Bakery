@@ -3,12 +3,14 @@
 .product{
   .loading{
     .loading-spinner{
-      max-width: 30px;
+      display: block;
+      max-width: 50px;
       width: 100%;
-      margin: 20px auto;
+      margin: 25px auto;
+      background: url("../../../assets/loading.png");
+      background-repeat: no-repeat;
+      background-size: cover;
       height: 30px;
-      border: 4px dotted $lightGreen;
-      border-radius: 50%;
       animation: spinner 2.5s linear infinite;
       -webkit-animation: spinner 2.5s linear infinite;
     }

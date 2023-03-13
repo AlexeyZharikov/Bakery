@@ -2,8 +2,11 @@ import "./cartItem.component.scss";
 import {FaTrash} from 'react-icons/fa';
 
 const CartItem = (props) => {
-
-  let totalPrice = props.price * props.count
+  // let disCprice = 0
+  // props.discount === null || props.discount === "" || props.discount === undefined 
+  //   ? disCprice = props.price 
+  //   : disCprice = props.price - (props.price * props.discount)
+  let totalPrice = props.price * props.count;
 
   return (
     <div className="cart-item" key={props.id}>

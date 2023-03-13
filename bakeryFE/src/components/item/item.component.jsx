@@ -1,5 +1,5 @@
 import "./item.component.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Quantity from "../quantity/quantity.component";
 
@@ -15,6 +15,14 @@ const {
 const Item = (props) => {
   const [hover, setHover] = useState(false);
   const [count, setCount] = useState(1);
+  const [isDiscount, setIsDiscount] = useState(false);
+
+  let price = 0;
+    isDiscount
+    ? price = Math.floor(props.price - (props.price / 100 * props.discount))
+    : price = props.price
+
+
 
   const hoverStyle = {
     transform: "scale(1.05)",
@@ -46,6 +54,15 @@ const Item = (props) => {
     <div className="card" key={props._id}>
       <div className="card-content">
         <div className="photo-item">
+          <div className="discount"
+            style={
+              props.discount === "" || props.discount === null
+                ? { display: "none" }
+                : { display: "block" }
+            }
+          >Знижка {props.discount}%
+            <span className="tooltiptext"><span>Знижка {props.discount}% за умов {props.discountDescription}</span></span>
+          </div>
           <div
             className="mask"
             style={
@@ -76,6 +93,7 @@ const Item = (props) => {
           />
           <div className="labels">
             <img
+              title="Халяль"
               className="label"
               src={halal}
               alt="halal"
@@ -86,6 +104,7 @@ const Item = (props) => {
               }
             />
             <img
+              title="Кошерне"
               className="label"
               src={kosher}
               alt="kosher"
@@ -96,6 +115,7 @@ const Item = (props) => {
               }
             />
             <img
+              title="Веган"
               className="label"
               src={vegan}
               alt="vegan"
@@ -106,6 +126,7 @@ const Item = (props) => {
               }
             />
             <img
+              title="Рав"
               className="label"
               src={raw}
               alt="raw"
@@ -114,6 +135,7 @@ const Item = (props) => {
               }
             />
             <img
+              title="Без глютену"
               className="label"
               src={glutenFree}
               alt="glutem-free"
@@ -124,6 +146,7 @@ const Item = (props) => {
               }
             />
             <img
+              title="Без цукру"
               className="label"
               src={sugarFree}
               alt="shugar-free"
@@ -136,11 +159,29 @@ const Item = (props) => {
           </div>
         </div>
         <div className="title">
-          <h3>{props.title}</h3>
+          <h3>{props.title}
+            <div className="caution" alt="caution"
+              style={props.alergic === true
+                ? { display: "inline-block" }
+                : { display: "none" }
+              }> <span className="tooltiptext">{props.alergicDecription}</span></div></h3>
         </div>
-        <div className="price">Ціна: {props.price}<span>&#x20B4;</span></div>
-        <Quantity initialCount={initialCount} increment={increment} decrement={decrement} count={count}/>
-        <div className="shortDescription">{props.shortDescription}</div>
+        {isDiscount
+          ? <div className="price">Ціна: <s>{props.price}<span>&#x20B4;</span></s> {price}<span>&#x20B4;</span></div>
+          : <div className="price">Ціна: {props.price}<span>&#x20B4;</span></div>
+        }
+
+        <Quantity availability={props.availability} initialCount={initialCount} increment={increment} decrement={decrement} count={count} />
+        {props.discount === null || props.discount === "" || props.discount === undefined ?
+          ""
+          : <div className="setDiscount">
+            <label htmlFor="disc-chkbx">Активувати знижку</label>
+            <input id="disc-chkbx" name="disc-chkbx" type="checkbox" onChange={(e) => setIsDiscount( e.target.checked)} value={isDiscount} checked={isDiscount} />
+          </div>
+        }
+        <div className="shortDescription">
+          {props.shortDescription}
+        </div>
       </div>
       <div className="card-btn">
         <Link className="details" to={`details/?id=${props.id}`}>
@@ -155,8 +196,7 @@ const Item = (props) => {
               id: props.id,
               title: props.title,
               photo: props.photo,
-              price: props.price,
-              // count,
+              price: price,
               count: count
             });
             initialCount();

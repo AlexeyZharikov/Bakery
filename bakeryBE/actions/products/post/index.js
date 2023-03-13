@@ -7,8 +7,16 @@ const postProduct = (req, res) => {
     shortDescription,
     longDescription,
     price,
+
+    discount,
+    discountDescription,
+
     category,
     availability,
+    
+    alergic,
+    alergicDecription,
+
     halal,
     kosher,
     vegan,
@@ -24,8 +32,16 @@ const postProduct = (req, res) => {
     shortDescription,
     longDescription,
     price,
+
+    discount,
+    discountDescription,
+
     category,
     availability,
+
+    alergic,
+    alergicDecription,
+    
     halal,
     kosher,
     vegan,
