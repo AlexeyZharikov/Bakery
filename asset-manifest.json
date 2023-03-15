@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/bakery/static/css/main.67952fc6.css",
-    "main.js": "/bakery/static/js/main.15589f00.js",
+    "main.js": "/bakery/static/js/main.f7694bec.js",
     "static/media/gluten-free.png": "/bakery/static/media/gluten-free.a7ccf56cf1641b470a40.png",
     "static/media/sugarfree.png": "/bakery/static/media/sugarfree.8aafe0cf26e64ba3a483.png",
     "static/media/vegan.png": "/bakery/static/media/vegan.a9ad5fa7843795c9846b.png",
@@ -13,10 +13,10 @@
     "static/media/loading.png": "/bakery/static/media/loading.f2cb30393c9ec1f86996.png",
     "index.html": "/bakery/index.html",
     "main.67952fc6.css.map": "/bakery/static/css/main.67952fc6.css.map",
-    "main.15589f00.js.map": "/bakery/static/js/main.15589f00.js.map"
+    "main.f7694bec.js.map": "/bakery/static/js/main.f7694bec.js.map"
   },
   "entrypoints": [
     "static/css/main.67952fc6.css",
-    "static/js/main.15589f00.js"
+    "static/js/main.f7694bec.js"
   ]
 }
