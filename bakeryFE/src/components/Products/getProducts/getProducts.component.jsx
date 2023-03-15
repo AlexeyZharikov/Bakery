@@ -3,7 +3,6 @@ import "./getProducts.component.scss";
 import { getProducts } from "../../../services/bakeryBE_API";
 import Item from "../../item/item.component";
 import Categories from "../../categories/categories.component";
-const {loading} = require('../../../assets/index');
 
 const GetProducts = (props) => {
   const [products, setProducts] = useState([]);

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { getOrders } from "../../../services/bakeryBE_API";
+import { getOrders, deleteOrder } from "../../../services/bakeryBE_API";
 import "./orders.component.scss";
+import {FaTrash} from 'react-icons/fa';
 
 const GetAllOrders = (props) => {
   const [orders, setOrders] = useState([]);
@@ -18,6 +19,18 @@ const GetAllOrders = (props) => {
       });
   }, []);
 
+  // delProd(id){
+  //   deleteProduct(id).then(res => console.log(`Product ${id} was deleted`));
+  //   this.setState({
+  //     products: this.state.products.filter(item => item._id !== id)
+  //   })
+  // }
+
+  const delOrder = (id) => {
+    deleteOrder(id).then(res => console.log(`Product ${id} was deleted`));
+      setOrders(orders.filter(item => item._id !== id))
+  }
+
   return (
     <div className="all-orders">
       <div className="all-orders-inner">
@@ -33,6 +46,8 @@ const GetAllOrders = (props) => {
               <th>Имя клиента</th>
               <th>Телефон клиента</th>
               <th>Email клиента</th>
+              <th>Комментарий к заказу</th>
+              <th>Удалить</th>
             </tr>
           </thead>
           <tbody>
@@ -45,9 +60,12 @@ const GetAllOrders = (props) => {
                   <td>
                     <table className="order-prod-details">
                       <thead>
-                        <th>название</th>
-                        <th>колличество</th>
-                        <th>сумма</th>
+                        <tr>
+                          <th>название</th>
+                          <th>колличество</th>
+                          <th>сумма</th>
+                        </tr>
+                 
                       </thead>
                       {item.items.map((i) => (
                         <tbody key={i._id}>
@@ -63,13 +81,14 @@ const GetAllOrders = (props) => {
                   <td>{item.clientName}</td>
                   <td>{item.clientPhone}</td>
                   <td>{item.clientEmail}</td>
+                  <td>{item.clientComment}</td>
+                  <td><FaTrash className="del-icon" onClick={() => {delOrder(item._id)}}/></td>
                 </tr>
               );
             })}
           </tbody>
         </table>
         }
-        {/* {loading ? <div className='loading'><div className="loading-spinner"></div></div> : <div className="products-inner">{orderItems} </div>} */}
       </div>
     </div>
   );

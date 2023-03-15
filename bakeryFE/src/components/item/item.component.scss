@@ -14,44 +14,18 @@
   -o-border-radius: 20px;
   box-shadow: 2px 2px 2px $white;
   .card-content {
-    height: 350px;
+    height: 420px;
     .title {
       color: $darkGreen;
       font-size: 20px;
       h3 {
-        .caution {
-          margin-left: 5px;
-          position: relative;
-          cursor: pointer;
-          width: 10px;
-          height: 10px;
-          background-image: url("../../assets/caution.png");
-          background-position: center;
-          background-size: cover;
-          background-repeat: no-repeat;
-          .tooltiptext {
-            position: absolute;
-            z-index: 1;
-            top: 10px;
-            left: 10px;
-            visibility: hidden;
-            width: 120px;
-            border: 1px solid $lightGrey;
-            border-radius: 5px;
-            -webkit-border-radius: 5px;
-            -moz-border-radius: 5px;
-            -ms-border-radius: 5px;
-            -o-border-radius: 5px;
-            background-color: rgba(255, 255, 255, 0.8);
-            font-size: 10px;
-            font-weight: 400;
-            color: $black;
-            font-family: $secondaryTextFF;
-          }
-        }
+        font-size: 1em;
       }
-      .caution:hover .tooltiptext {
-        visibility: visible;
+      .caution {
+        font-size: 10px;
+        font-weight: 400;
+        color: $black;
+        font-family: $secondaryTextFF;
       }
     }
     .photo-item {
@@ -216,27 +190,34 @@
   .card {
     max-width: 350px;
     .card-content {
-      height: 550px;
+      height: 650px;
       .title {
-        font-size: 35px;
+        width: 100%;
+        h3{
+        font-size: 30px;
         font-weight: 600;
+        }
       }
       .photo-item {
-        max-width: 330px;
+        max-width: 280px;
         // height: 330px;
         img {
-          max-width: 330px;
+          max-width: 280px;
           width: 100%;
-          height: 330px;
+          height: 280px;
         }
-
+        .discount {
+          bottom:42px;
+          height: 30px;
+          font-size: 25px;
+        }
         .mask {
           position: absolute;
           top: 0;
           left: 0;
-          max-width: 330px;
+          max-width: 280px;
           width: 100%;
-          height: 330px;
+          height: 280px;
           .availability {
             top: 130px;
             left: 50px;
@@ -246,19 +227,27 @@
         }
         .labels {
           height: 35px;
+          margin: 2px auto;
           img.label {
             max-width: 35px;
+            
           }
         }
       }
       .price {
-        font-size: 30px;
+        font-size: 25px;
+      }
+      .disc-block{
+        font-size: 25px;
       }
       .quantity-block {
         display: block;
         .quantity-input {
           margin: 10px 0;
         }
+      }
+      .setDiscount{
+        font-size: 25px;
       }
       .shortDescription {
         font-size: 20px;

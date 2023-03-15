@@ -4,6 +4,7 @@
   .detailed-item-content {
     max-width: 800px;
     width: 100%;
+    min-height: 400px;
     margin: 0 auto;
     background-color: $white;
     display: flex;
@@ -179,7 +180,10 @@
         padding: 5px 5px 0;
         max-width: 350px;
         .title{
-          font-size: 40px;
+          font-size: 35px;
+        }
+        .caution{
+          font-size: 30px;
         }
         .labels {
           height: 35px;
@@ -196,7 +200,7 @@
           min-height: 400px;
           span {
             font-family: $mainTextFF;
-            font-size: 40px;
+            font-size: 35px;
             
           }
         }

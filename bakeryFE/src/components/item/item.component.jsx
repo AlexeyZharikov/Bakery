@@ -1,5 +1,5 @@
 import "./item.component.scss";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import Quantity from "../quantity/quantity.component";
 
@@ -61,7 +61,6 @@ const Item = (props) => {
                 : { display: "block" }
             }
           >Знижка {props.discount}%
-            <span className="tooltiptext"><span>Знижка {props.discount}% за умов {props.discountDescription}</span></span>
           </div>
           <div
             className="mask"
@@ -159,19 +158,18 @@ const Item = (props) => {
           </div>
         </div>
         <div className="title">
-          <h3>{props.title}
-            <div className="caution" alt="caution"
-              style={props.alergic === true
-                ? { display: "inline-block" }
-                : { display: "none" }
-              }> <span className="tooltiptext">{props.alergicDecription}</span></div></h3>
-        </div>
+          <h3>{props.title}</h3>
+          </div>
         {isDiscount
           ? <div className="price">Ціна: <s>{props.price}<span>&#x20B4;</span></s> {price}<span>&#x20B4;</span></div>
           : <div className="price">Ціна: {props.price}<span>&#x20B4;</span></div>
         }
 
         <Quantity availability={props.availability} initialCount={initialCount} increment={increment} decrement={decrement} count={count} />
+        <div className="disc-block" style={props.discount === null || props.discount === "" || props.discount === undefined
+                ? { display: "none" }
+                : { display: "block" }
+              }>На цей товар діє знижка {props.discount}% за умов {props.discountDescription}</div> 
         {props.discount === null || props.discount === "" || props.discount === undefined ?
           ""
           : <div className="setDiscount">
@@ -179,7 +177,14 @@ const Item = (props) => {
             <input id="disc-chkbx" name="disc-chkbx" type="checkbox" onChange={(e) => setIsDiscount( e.target.checked)} value={isDiscount} checked={isDiscount} />
           </div>
         }
+        
         <div className="shortDescription">
+        <div className="caution"
+              style={props.alergic === true
+                ? { display: "block" }
+                : { display: "none" }
+              }>Увага!!! {props.alergicDecription}
+              </div>
           {props.shortDescription}
         </div>
       </div>

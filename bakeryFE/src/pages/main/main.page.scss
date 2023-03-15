@@ -64,4 +64,10 @@
     }
   }
 }
-// and (min-width: 320px)
+@media (orientation: landscape){
+  .main {
+    .main-inner {
+      padding-top: 70px;
+    }
+  }
+}

@@ -11,14 +11,15 @@ const createOrder = (req, res) => {
     polling: false
   });
 
-  const {orderNum, items, total, clientName, clientPhone, clientEmail} = req.body
+  const {orderNum, items, total, clientName, clientPhone, clientEmail, clientComment} = req.body
 
   const newOrder = new orderModel({
     orderNum, 
     items, total, 
     clientName, 
     clientPhone, 
-    clientEmail
+    clientEmail,
+    clientComment
   })
 
   return newOrder
@@ -26,13 +27,13 @@ const createOrder = (req, res) => {
   .then(() => {
     let order = `Замовлення №: ${newOrder.orderNum}, Дата та час: ${(new Date()).toLocaleDateString() + ' ' +(new Date()).toLocaleTimeString()}, Товари: [ ${newOrder.items.map(item => {
       return `{ назва: ${item.title}, кількість: ${item.count}, ціна: ${item.price}}`
-    })}], Загальна сума: ${newOrder.total}UAH, Телефон: ${newOrder.clientPhone}, Імʼя: ${newOrder.clientName}`
+    })}], Загальна сума: ${newOrder.total}UAH, Телефон: ${newOrder.clientPhone}, Імʼя: ${newOrder.clientName}, коментар: ${newOrder.clientComment}`
     return order ? bot.sendMessage(chatId1, order) : console.log(error);
   })
   .then(() => {
     let order = `Замовлення №: ${newOrder.orderNum}, Дата та час: ${(new Date()).toLocaleDateString() + ' ' +(new Date()).toLocaleTimeString()}, Товари: [ ${newOrder.items.map(item => {
       return `{ назва: ${item.title}, кількість: ${item.count}, ціна: ${item.price}}`
-    })}], Загальна сума: ${newOrder.total} грн., Телефон: ${newOrder.clientPhone}, Імʼя: ${newOrder.clientName}`
+    })}], Загальна сума: ${newOrder.total} грн., Телефон: ${newOrder.clientPhone}, Імʼя: ${newOrder.clientName}, коментар: ${newOrder.clientComment}`
     return order ? bot.sendMessage(chatId2, order) : console.log(error);
   })
   .then(() => res.status(201).json('Order added'))

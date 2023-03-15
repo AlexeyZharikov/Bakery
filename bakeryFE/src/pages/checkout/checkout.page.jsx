@@ -21,7 +21,8 @@ const Checkout = (props) => {
     total: total,
     clientName: '',
     clientPhone: '',
-    clientEmail:''
+    clientEmail:'',
+    clientComment: ''
   })
 
 
@@ -33,6 +34,9 @@ const Checkout = (props) => {
   }
   const onChangeClientEmail = (e) =>  {
     setOrderToBE( {...orderToBE, clientEmail: e.target.value} );
+  }
+  const onChangeClientComment = (e) => {
+    setOrderToBE({...orderToBE, clientComment: e.target.value})
   }
 
   const onSubmit = (e) => {
@@ -98,10 +102,18 @@ const Checkout = (props) => {
                 </div>
                 <div className="email-block">
                   <input
-                    type="text"
-                    name="phoemailne"
-                    placeholder="email"
+                    type="email"
+                    name="email"
+                    placeholder="Email"
                     onChange={(e) => onChangeClientEmail(e)}
+                  />
+                </div>
+                <div className="comment-block">
+                  <textarea
+                  rows="10"
+                    name="comment"
+                    placeholder="Коментар до замовлення"
+                    onChange={(e) => onChangeClientComment(e)}
                   />
                 </div>
                 <div className="btn">

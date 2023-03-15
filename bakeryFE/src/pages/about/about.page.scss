@@ -29,6 +29,7 @@
       color: $white;
     }
     .contact-block {
+      max-height: 170px;
       background-color: $white;
       border-radius: 20px;
       -webkit-border-radius: 20px;
@@ -50,6 +51,10 @@
 }
 @media only screen and (max-width: 768px) {
   .about_page-inner {
+    height: 1000px;
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
     padding-top: 30px;
     padding-bottom: 30px;
     .about-header {
@@ -65,15 +70,19 @@
         margin: 0 auto;
         text-align: center;
         font-size: 27px;
+        max-width: 500px;
+        width: 100%;
+
       }
       .main-text{
         margin-bottom: 40px;
       }
-      // .contact-block{
+      .contact-block{
+        max-height: 300px;
       //   .contact-inner{
 
       //   }
-      // }
+      }
     }
   }
 }

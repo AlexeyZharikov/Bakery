@@ -14,11 +14,16 @@ import { useState } from "react";
 const ContentBlock = () => {
   const [orders, setOrders] = useState([]);
   const [orderId] = useState(Date.now());
+  
 
   const addToOrder = (item) => {
     let isInArr = false;
     orders.forEach((elem) => {
-      if (elem.id === item.id) isInArr = true;
+      
+      if (elem.count !== item.count) {
+        elem.count = item.count
+      }
+      if (elem.id === item.id && elem.count === item.count) isInArr = true;
     });
     if (!isInArr)
       setOrders([
@@ -44,7 +49,7 @@ const ContentBlock = () => {
 
   return (
     <div className="contentBlock">
-      <BrowserRouter>
+      <BrowserRouter basename='/bakery'>
         <Header
           orders={orders}
           setOrders={setOrders}

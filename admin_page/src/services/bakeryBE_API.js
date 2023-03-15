@@ -20,8 +20,6 @@ import axios from "axios";
 // }
 
 
-
-
 const getProducts = async () => {
   return await axios.get('https://bakerybe-00001-luc-4jln4ogn4q-uc.a.run.app/products?id=');
 }
@@ -49,4 +47,8 @@ const getOrders = async () => {
   return await axios.get('https://bakerybe-00001-luc-4jln4ogn4q-uc.a.run.app/orders/?id');
 }
 
-export { getProducts, getProduct, postProduct, putProduct, deleteProduct, getOrders };
+const deleteOrder = async (id) => {
+  return await axios.delete(`https://bakerybe-00001-luc-4jln4ogn4q-uc.a.run.app/orders?id=${id}`);
+}
+
+export { getProducts, getProduct, postProduct, putProduct, deleteProduct, getOrders, deleteOrder };

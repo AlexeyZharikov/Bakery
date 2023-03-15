@@ -27,6 +27,10 @@ const orderSchema = new Schema({
   clientEmail: {
     type: String,
     required: false
+  },
+  clientComment:{
+    type: String,
+    required: false
   }
 });
 

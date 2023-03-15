@@ -4,29 +4,28 @@ import { useState } from "react";
 import { BsCartCheck, BsCartDash } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
-
 const Cart = (props) => {
   let [cartOpen, setCartOpen] = useState(false);
 
-  const showCartItems = (props) => {
+  const itemsInCart = props.orders.map((item) => (
+    <CartItem
+      key={item.id}
+      onDelete={props.onDelete}
+      id={item.id}
+      title={item.title}
+      photo={item.photo}
+      price={item.price}
+      count={item.count}
+      discount={item.discount}
+    />
+  ));
     let total = 0;
+    props.orders.forEach((item) => total += item.price * item.count)
 
-    const itemsInCart = props.orders.map((item) => (
-      <CartItem
-        key={item.id}
-        onDelete={props.onDelete}
-        id={item.id}
-        title={item.title}
-        photo={item.photo}
-        price={item.price}
-        count={item.count}
-        discount={item.discount}
-      />
-    ));
+  console.log(total);
 
-    props.orders.forEach((item) => (total += item.price * item.count));
-    
-
+  const showCartItems = (props) => {
+ 
     return (
       <div className="full-cart">
         <div className="orderId">Замовлення №{props.orderId}</div>
@@ -80,5 +79,3 @@ const Cart = (props) => {
 };
 
 export default Cart;
-
-

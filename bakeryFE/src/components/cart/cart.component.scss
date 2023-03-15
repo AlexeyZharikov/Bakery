@@ -59,7 +59,12 @@
         text-decoration: none;
         font-family: $mainTextFF;
         font-size: 20px;
-      }
+        transition: color 0.2s linear;
+        -webkit-transition: color 0.2s linear;
+        -moz-transition: color 0.2s linear;
+        -ms-transition: color 0.2s linear;
+        -o-transition: color 0.2s linear;
+}
     }
     .checkout-btn a:hover {
       color: $lightGreen;

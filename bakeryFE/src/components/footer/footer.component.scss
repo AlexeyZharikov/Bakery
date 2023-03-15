@@ -1,7 +1,6 @@
 @import "../../variables.scss";
 
 .footer {
-  // background-color: #0F1B07;
   background-color: rgba(000, 000, 000, 0.5);
   height: 120px;
   position: absolute;
@@ -40,6 +39,9 @@
         margin: 0;
 
         .footer-nav-link {
+          max-width: 50px;
+          width: 100%;
+          margin: 0 auto;
           display: block;
           color: $white;
           text-decoration: none;

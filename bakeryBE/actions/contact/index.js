@@ -1,1 +1,0 @@
-// module.exports.sendContact = require('./post');
