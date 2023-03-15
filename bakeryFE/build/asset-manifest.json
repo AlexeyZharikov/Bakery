@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/AlexeyZharikov/bakery/static/css/main.7e33bd05.css",
+    "main.js": "/AlexeyZharikov/bakery/static/js/main.3e8295c3.js",
+    "static/media/gluten-free.png": "/AlexeyZharikov/bakery/static/media/gluten-free.a7ccf56cf1641b470a40.png",
+    "static/media/sugarfree.png": "/AlexeyZharikov/bakery/static/media/sugarfree.8aafe0cf26e64ba3a483.png",
+    "static/media/vegan.png": "/AlexeyZharikov/bakery/static/media/vegan.a9ad5fa7843795c9846b.png",
+    "static/media/raw.png": "/AlexeyZharikov/bakery/static/media/raw.9ee590d8747188af4498.png",
+    "static/media/kosher.png": "/AlexeyZharikov/bakery/static/media/kosher.34909dee6083598b9d35.png",
+    "static/media/halal.png": "/AlexeyZharikov/bakery/static/media/halal.8648cd919bae8ea9d340.png",
+    "static/media/BG.jpg.webp": "/AlexeyZharikov/bakery/static/media/BG.jpg.f5291966a0f30b10e232.webp",
+    "static/media/humane&Healthy.png": "/AlexeyZharikov/bakery/static/media/humane&Healthy.180a8c79b74ca102ebab.png",
+    "static/media/loading.png": "/AlexeyZharikov/bakery/static/media/loading.f2cb30393c9ec1f86996.png",
+    "index.html": "/AlexeyZharikov/bakery/index.html",
+    "main.7e33bd05.css.map": "/AlexeyZharikov/bakery/static/css/main.7e33bd05.css.map",
+    "main.3e8295c3.js.map": "/AlexeyZharikov/bakery/static/js/main.3e8295c3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7e33bd05.css",
+    "static/js/main.3e8295c3.js"
+  ]
+}
